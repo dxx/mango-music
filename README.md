@@ -4,58 +4,6 @@ This is a music webapp. Build width [Create React App](https://github.com/facebo
 
 Online preview address: https://code-mcx.github.io/mango-music.
 
-## Project Structure
-
-```
-mango-music/
-  README.md
-  node_modules/
-  package.json
-  public/
-    index.html
-    favicon.ico
-  scripts/
-    customized-build.js
-    overrides-config.base.js
-    overrides-config.dev.js
-    overrides-config.prod.js
-  src/
-    api/
-      config.js
-      jsonp.js
-      ranking.js
-      recommend.js
-      search.js
-      singer.js
-      song.js
-    assets/
-      imgs/
-        ...
-      stylus/
-        fonts/
-        font.styl
-        reset.styl
-    common/
-      header
-      loading
-      scroll
-    components/
-      album
-      play
-      ranking
-      recommend
-      searc
-      singer
-    containers/
-      ...
-    model/
-      ...
-    redux/
-      ...
-    api.test.js
-    index.css
-    index.js
-```
 
 ## Available Scripts
 
