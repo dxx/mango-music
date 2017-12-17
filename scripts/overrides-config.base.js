@@ -28,7 +28,7 @@ module.exports = function(config) {
     options: {
       stylus: {
         use: [
-          poststylus([ 
+          poststylus([
             require('postcss-flexbugs-fixes'),
             autoprefixer({
               browsers: [
