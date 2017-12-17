@@ -1,0 +1,35 @@
+.music-ranking
+  width: 100%
+  height: 100%
+  .ranking-list
+    padding-bottom: 15px
+    .ranking-wrapper
+      margin: 15px
+      background-color: #333333
+      font-size: 0
+      .left
+        display: inline-block
+        width: w = 100px
+        height: h = @width
+        img
+          width: w
+          height: h
+      .right
+        display: inline-block
+        line-height: 22px
+        font-size: 14px
+        margin-left: 10px
+        vertical-align: top
+        .ranking-title
+          font-size: 16px
+          color: #FFFFFF
+          margin: 4px 0 6px 0
+        .top-song, .ranking-title
+          max-width: 180px
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+          .index
+            margin-right: 10px
+          .song
+            color: rgba(221,221,221,0.7)

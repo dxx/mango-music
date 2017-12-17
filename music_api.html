@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ Music Api</title>
+	<style type="text/css">
+		h1 {
+			text-align: center;
+		}
+		.param-info {
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>QQ Music Api</h1>
+
+	<h3>推荐歌单</h3>
+	<div>
+		<div>https://u.y.qq.com/cgi-bin/musicu.fcg?callback=recom3477297233556247&g_tk=1278911659&jsonpCallback=recom3477297233556247&loginUin=0&hostUin=0&format=jsonp&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&data={"comm":{"ct":24},"category":{"method":"get_hot_category","param":{"qq":""},"module":"music.web_category_svr"},"recomPlaylist":{"method":"get_hot_recommend","param":{"async":1,"cmd":2},"module":"playlist.HotRecommendServer"},"playlist":{"method":"get_playlist_by_category","param":{"id":8,"curPage":1,"size":40,"order":5,"titleid":8},"module":"playlist.PlayListPlazaServer"},"new_song":{"module":"QQMusic.MusichallServer","method":"GetNewSong","param":{"type":0}},"new_album":{"module":"QQMusic.MusichallServer","method":"GetNewAlbum","param":{"type":0,"category":"-1","genre":0,"year":1,"company":-1,"sort":1,"start":0,"end":39}},"toplist":{"module":"music.web_toplist_svr","method":"get_toplist_index","param":{}},"focus":{"module":"QQMusic.MusichallServer","method":"GetFocus","param":{}}}</div>
+	</div>
+
+	<h3>推荐轮播</h3>
+	<div>
+		<div>https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg?g_tk=701075963&uin=0&format=jsonp&jsonpCallback=callback&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&_=1512548815061</div>
+	</div>
+
+	<h3>最新专辑</h3>
+	<div>
+		<div>https://c.y.qq.com/v8/fcg-bin/album_library?g_tk=1278911659&hostUin=0&format=jsonp&jsonpCallback=callback&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&cmd=firstpage&page=0&pagesize=20&sort=1&language=-1&genre=0&year=1&pay=0&type=-1&company=-1</div>
+	</div>
+
+	<h3>专辑详情</h3>
+	<div>
+		<div>https://c.y.qq.com/v8/fcg-bin/fcg_v8_album_info_cp.fcg?albummid=001IskfD3Vncxo&g_tk=1278911659&hostUin=0&format=jsonp&jsonpCallback=callback&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0</div>
+		<div class="param-info">albummid参数：专辑albummid</div>
+	</div>
+
+	<h3>歌手</h3>
+	<div>
+		<div>https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&g_tk=5381&jsonpCallback=callback&loginUin=0&hostUin=0&format=jsonp&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0</div>
+	</div>
+
+	<h3>歌手详情</h3>
+	<div>
+		<div>https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&jsonpCallback=callback&loginUin=0&hostUin=0&format=jsonp&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&singermid=004aRKga0CXIPm&order=listen&begin=0&num=30&songstatus=1</div>
+		<div class="param-info">singermid参数：歌手mid</div>
+	</div>
+
+	<h3>排行榜</h3>
+	<div>
+		<div>https://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg?g_tk=5381&uin=0&format=jsonp&jsonpCallback=callback&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&_=1512554796112</div>
+	</div>
+
+	<h3>排行榜详情</h3>
+	<div>
+		<div>https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?g_tk=5381&uin=0&format=jsonp&jsonpCallback=callback&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&tpl=3&page=detail&type=top&topid=4&_=1512563984096</div>
+		<div class="param-info">topid参数：排行榜id</div>
+	</div>
+
+	<h3>热搜</h3>
+		<div>https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg?g_tk=5381&uin=0&format=jsonp&jsonpCallback=callback&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&_=1513317614040</div>
+	<div>
+
+	<h3>歌曲搜索</h3>
+	<div>
+		<div>https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?g_tk=5381&uin=0&format=jsonp&jsonpCallback=callback&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&w=%E6%AC%A7%E9%98%B3%E6%9C%B5&zhidaqu=1&catZhida=1&t=0&flag=1&ie=utf-8&sem=1&aggr=0&perpage=20&n=20&p=1&remoteplace=txt.mqq.all&_=1512564562121</div>
+		<div class="param-info">w参数：搜索关键字</div>
+	</div>
+
+	<h3>歌曲vkey</h3>
+	<div>
+		<div>https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=1278911659&hostUin=0&format=jsonp&callback=callback&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&cid=205361747&uin=0&songmid=000OFXjz0Nljbh&filename=C400000OFXjz0Nljbh.m4a&guid=3655047200</div>
+		<div class="param-info">
+			songmid参数：歌曲mid<br/>
+			filename参数：C400 + 歌曲文件名<br/>
+		</div>
+	</div>
+
+	<h3>歌曲文件</h3>
+	<div>
+		<div>http://dl.stream.qqmusic.qq.com/C400000OFXjz0Nljbh.m4a?vkey=33E6799DB60508E9561F3DDAA6ED69488988B51DE791617A2E34B02A3A48E9CCBD43595DC00D796EB6768D26134AAB1C3AD192C7044DE1A1&guid=3655047200&fromtag=66</div>
+		<div class="param-info">vkey参数：歌曲vkey</div>
+	</div>
+
+	<h3>歌词</h3>
+	<div>
+		<div>https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric.fcg?g_tk=5381&uin=0&format=jsonp&jsonpCallback=callback&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&nobase64=1&musicid=201773975&songtype=0&_=1513437581324</div>
+	</div>
+</body>
+</html>
