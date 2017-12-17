@@ -2,6 +2,8 @@
 
 This is a music webapp. Build width [Create React App](https://github.com/facebookincubator/create-react-app).
 
+Online preview address: https://code-mcx.github.io/mango-music.
+
 ## Project Structure
 
 ```
