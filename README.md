@@ -4,6 +4,10 @@ This is a music webapp. Build width [Create React App](https://github.com/facebo
 
 Online preview address: https://code-mcx.github.io/mango-music.
 
+## Technology Stack
+
+React + React-Router + Redux + ES6 + Webpack
+
 ## Project Structure
 
 ```
@@ -58,6 +62,10 @@ mango-music/
 ```
 
 ## Available Scripts
+
+### `npm install`
+
+First, run the `npm install` to install dependence
 
 ### `npm start`
 
