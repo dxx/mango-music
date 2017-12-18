@@ -1,28 +1,43 @@
-.App
-  text-align: center
+.app
+  width: 100%
+  height: 100%
+  color: #DDDDDD
+  background-color: #212121
+  .app-header
+    height: 55px
+    line-height: 55px
+    color: #FFD700
+    text-align: center
+    .app-logo
+      width: 30px
+      height: 25px
+      margin-top: -5px
+      vertical-align: middle
+    .app-title
+      display: inline-block
+      height: 55px
+      margin-left: 10px
+      font-size: 18px
+      font-weight: 300
+  .music-tab
+    display: flex
+    height: 30px
+    line-height: 30px
+    color: #DDDDDD
+    text-align: center
+    .tab-item
+      flex: 1
+  .music-view
+    position: fixed
+    top: 88px
+    left: 0
+    bottom: 52px
+    width: 100%
 
-
-.App-logo
-  animation: App-logo-spin infinite 20s linear
-  height: 80px
-
-
-.App-header
-  background-color: #222
-  height: 150px
-  padding: 20px
-  color: white
-
-
-.App-title
-  font-size: 1.5em
-
-
-.App-intro
-  font-size: large
-
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+.nav-link, .link
+  display: block
+  color: inherit
+  text-decoration: none
+  &.active
+    color: #FFD700
+    border-bottom: 2px solid #FFD700
