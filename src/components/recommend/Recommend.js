@@ -55,7 +55,7 @@ class Recommend extends React.Component {
 				//console.log(res);
 				if (res.code === CODE_SUCCESS) {
 					//根据发布时间降序排列
-					let albumList = res.data.albumlist;
+					let albumList = res.albumlib.data.list;
 					albumList.sort((a, b) => {
 						return new Date(b.public_time).getTime() - new Date(a.public_time).getTime();
 					});

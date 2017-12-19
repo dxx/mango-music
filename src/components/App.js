@@ -22,7 +22,7 @@ class App extends React.Component {
               <h1 className="app-title">Mango Music</h1>
             </header>
             <div className="music-tab">
-              <div className="tab-item selected">
+              <div className="tab-item">
                 <NavLink to="/recommend" className="nav-link">
                   <span>推荐</span>
                 </NavLink>
