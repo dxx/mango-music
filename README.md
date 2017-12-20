@@ -48,7 +48,7 @@ mango-music/
       play
       ranking
       recommend
-      searc
+      search
       singer
     containers/
       ...
