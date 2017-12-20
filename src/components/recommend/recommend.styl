@@ -1,0 +1,45 @@
+.music-recommend
+  .slider-container
+    height: 160px
+    position: relative
+    .slider-nav
+      display: block
+      width: 100%
+      height: 100%
+    .swiper-pagination-bullet-active
+      background-color: #DDDDDD
+  .album-container
+    .title
+      height: 50px
+      line-height: 50px
+      text-align: center
+      font-size: 15px
+      font-weight: 400
+      color: #FFD700
+    .album-list
+      font-size: 15px
+      padding-bottom: 20px
+      .album-wrapper
+        margin: 20px
+        color: rgba(221, 221, 221, 0.7)
+        .left
+          display: inline-block
+          width: 60px
+          height: 60px
+          vertical-align: top
+        .right
+          display: inline-block
+          max-width: 200px
+          margin-left: 20px
+          line-height: 20px
+          .album-name, .singer-name, public-time
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+          .album-name
+            color: #FFFFFF
+            font-weight: 500
+      .album-wrapper:first-child
+        margin-top: 0
+      .album-wrapper:last-child
+        margin-bottom: 0
