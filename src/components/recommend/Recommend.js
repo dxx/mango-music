@@ -1,7 +1,7 @@
 import React from "react"
 import {Route} from "react-router-dom"
+import LazyLoad, { forceCheck } from "react-lazyload"
 import Swiper from "swiper"
-import LazyLoad, { forceCheck } from "react-lazyload";
 import {getCarousel, getNewAlbum} from "@/api/recommend"
 import {CODE_SUCCESS} from "@/api/config"
 import Album from "@/containers/Album"
@@ -41,6 +41,7 @@ class Recommend extends React.Component {
 							this.sliderSwiper = new Swiper(".slider-container", {
 								loop: true,
 								autoplay: 3000,
+								autoplayDisableOnInteraction: false,
 								pagination: '.swiper-pagination'
 							});
 						}
