@@ -5,7 +5,7 @@ This is a music webapp. Build width [Create React App](https://github.com/facebo
 Online preview address: https://code-mcx.github.io/mango-music.
 
 ### Instruction
-This is the third chapter of the code
+This is the first chapter of the code
 
 [Address](https://juejin.im/post/5a367e996fb9a0450f22050f)
 
