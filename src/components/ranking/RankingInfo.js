@@ -40,6 +40,7 @@ class RankingInfo extends React.Component {
 					ranking.info = res.topinfo.info;
 					let songList = [];
 					res.songlist.forEach(item => {
+						if (item.data.pay.payplay === 1) { return }
 						let song = SongModel.createSong(item.data);
 						//获取歌曲vkey
 						this.getSongUrl(song, item.data.songmid);

@@ -116,6 +116,7 @@ class Search extends React.Component {
 
 					let songs = [];
 					res.data.song.list.forEach((data) => {
+						if (data.pay.payplay === 1) { return }
 						songs.push(SongModel.createSong(data));
 					});
 					this.setState({
