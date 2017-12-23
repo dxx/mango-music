@@ -46,7 +46,7 @@ class Search extends React.Component {
 			w,
             singer: {},
             album: {},
-            songs: [],
+            songs: []
 		});
 	}
 	handleClick = (data, type) => {
@@ -150,7 +150,7 @@ class Search extends React.Component {
 						}/>
 					</div>
 					<div className="cancel-button" style={{display: this.state.w ? "block" : "none"}}
-					onClick={() => this.setState({w:""})}>取消</div>
+					onClick={() => this.setState({w:"", singer:{}, album:{}, songs:[]})}>取消</div>
 					
 				</div>
 				<div className="search-hot" style={{display: this.state.w ? "none" : "block"}}>

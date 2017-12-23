@@ -105,17 +105,10 @@ class RankingInfo extends React.Component {
 				rankingFixedBgDOM.style.display = "none";
 			}
 		} else {
-			if (y < 100) {
-				let transform = `scale(${1 + y * 0.01}, ${1 + y * 0.01})`;
-				rankingBgDOM.style["webkitTransform"] = transform;
-				rankingBgDOM.style["transform"] = transform;
-				playButtonWrapperDOM.style.marginTop = `${y}px`;
-			} else {
-				let transform = `scale(${1 + 10 * 0.01}, ${1 + 10 * 0.01})`;
-				rankingBgDOM.style["webkitTransform"] = transform;
-				rankingBgDOM.style["transform"] = transform;
-				playButtonWrapperDOM.style.marginTop = `100px`;
-			}
+			let transform = `scale(${1 + y * 0.004}, ${1 + y * 0.004})`;
+			rankingBgDOM.style["webkitTransform"] = transform;
+			rankingBgDOM.style["transform"] = transform;
+			playButtonWrapperDOM.style.marginTop = `${y}px`;
 		}
 	}
 	render() {
