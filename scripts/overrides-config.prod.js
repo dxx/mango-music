@@ -54,5 +54,5 @@ module.exports = function(config) {
       ), extractTextPluginOptions)
   });
   // Use Poststylus Plugin to handle stylus
-  config.plugins.splice(config.plugins.length, 0, baseConfig.stylusLoaderOptionsPlugin);
+  config.plugins.push(baseConfig.stylusLoaderOptionsPlugin);
 }

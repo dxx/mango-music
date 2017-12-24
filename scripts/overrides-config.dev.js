@@ -17,5 +17,5 @@ module.exports = function(config) {
     use: ["style-loader", "css-loader", "stylus-loader"]
   });
   // Use Poststylus Plugin to handle stylus
-  config.plugins.splice(config.plugins.length, 0, baseConfig.stylusLoaderOptionsPlugin);
+  config.plugins.push(baseConfig.stylusLoaderOptionsPlugin);
 }
