@@ -30,27 +30,27 @@ module.exports = function(config) {
     test: /\.styl$/,
     loader: ExtractTextPlugin.extract(
       Object.assign(
-    	  {
-    	  	fallback: {
-               loader: require.resolve('style-loader'),
-               options: {
-                 hmr: false,
-               },
+        {
+          fallback: {
+              loader: require.resolve('style-loader'),
+              options: {
+                hmr: false
+              }
+          },
+          use: [
+            {
+              loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                  minimize: true,
+                  sourceMap: true
+                }
             },
-    		use: [
-	    	  {
-	    	    loader: require.resolve('css-loader'),
-	            options: {
-	              importLoaders: 1,
-	              minimize: true,
-	              sourceMap: true
-	            }
-	    	  },
-	    	  {
-	    	    loader: require.resolve('stylus-loader')
-	    	  }
-	        ]
-	      }
+            {
+              loader: require.resolve('stylus-loader')
+            }
+          ]
+        }
       ), extractTextPluginOptions)
   });
   // Use Poststylus Plugin to handle stylus
