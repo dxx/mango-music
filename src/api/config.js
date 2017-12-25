@@ -2,7 +2,11 @@ const URL = {
     /*推荐轮播*/
     carousel: "https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg",
     /*最新专辑*/
-    newalbum: "https://u.y.qq.com/cgi-bin/musicu.fcg"
+    newalbum: "https://u.y.qq.com/cgi-bin/musicu.fcg",
+    /*专辑信息*/
+    albumInfo: "https://c.y.qq.com/v8/fcg-bin/fcg_v8_album_info_cp.fcg",
+    /*歌曲vkey*/
+    songVkey: "https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg"
 };
 
 const PARAM = {

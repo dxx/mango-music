@@ -29,3 +29,14 @@ export function getNewAlbum() {
     };
     return jsonp(URL.newalbum, data, option);
 }
+
+export function getAlbumInfo(albumMid) {
+    const data = Object.assign({}, PARAM, {
+        albummid: albumMid,
+        g_tk: 1278911659,
+        hostUin: 0,
+        platform: "yqq",
+        needNewCode: 0
+    });
+    return jsonp(URL.albumInfo, data, OPTION);
+}

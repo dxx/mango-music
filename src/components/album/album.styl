@@ -1,0 +1,96 @@
+.music-album
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: #212121
+  z-index: 100
+  .music-header
+    z-index: 10
+  .album-img
+    position: relative
+    z-index: -1
+    width: 100%
+    padding-top: 70%
+    background-repeat: no-repeat
+    background-size: cover
+    transform-origin: top center
+    transition: transform
+    &.fixed
+      position: fixed
+      top: 0
+      height: 55px
+      z-index: 1
+      background-position: 0 0
+      padding: 0
+      display: none
+  .play-wrapper
+    position: absolute
+    bottom: 20px
+    width: 100%
+    text-align: center
+    color: #FFD700
+    .play-button
+      display: inline-block
+      width: 120px
+      padding: 8px 0
+      border-radius: 50px
+      border: 1px solid #FFD700
+      i
+        display: inline-block
+        vertical-align: middle
+        margin-top: -2px
+        margin-right: 5px
+        font-size: 16px
+        font-weight: 600
+      span
+        font-size: 14px
+  .filter
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.3)
+  .album-container
+    position: absolute
+    bottom: 52px
+    width: 100%
+    margin-top: 2px
+    .album-scroll
+      width: 100%
+      height: @width
+    .scroll-view
+      overflow: visible
+    .album-wrapper
+      padding: 25px 25px 0 25px
+      background-color: #212121
+      .song-count
+        font-size: 14px
+      .song-list
+        margin-top: 20px
+        .song
+          padding-bottom: 25px
+          .song-name
+            height: 16px
+            color: #FFF
+          .song-singer
+            font-size: 14px
+            padding-top: 8px
+            color: rgba(221, 221, 221, 0.7)
+          .song-name, .song-singer
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+      .album-info
+        padding-bottom: 25px
+        .album-title
+          font-size: 18px
+          font-weight: 100
+          text-align: center
+          color: #FFFFFF
+        .album-desc
+          font-size: 14px
+          margin-top: 15px
+          line-height: 22px
