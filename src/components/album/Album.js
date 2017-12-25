@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import {CSSTransition} from "react-transition-group"
 import Header from "@/common/header/Header"
 import Scroll from "@/common/scroll/Scroll"
 import Loading from "@/common/loading/Loading"
@@ -8,7 +9,6 @@ import {getSongVKey} from "@/api/song"
 import {CODE_SUCCESS} from "@/api/config"
 import * as AlbumModel from "@/model/album"
 import * as SongModel from "@/model/song"
-
 import "./album.styl"
 
 class Album extends React.Component {
@@ -16,6 +16,7 @@ class Album extends React.Component {
         super(props);
 
         this.state = {
+            show: false,
             loading: true,
             album: {},
             songs: [],
@@ -23,6 +24,9 @@ class Album extends React.Component {
         }
     }
     componentDidMount() {
+        this.setState({
+            show: true
+        });
         let albumBgDOM = ReactDOM.findDOMNode(this.refs.albumBg);
         let albumContainerDOM = ReactDOM.findDOMNode(this.refs.albumContainer);
         albumContainerDOM.style.top = albumBgDOM.offsetHeight + "px";
@@ -78,6 +82,7 @@ class Album extends React.Component {
             );
         });
         return (
+            <CSSTransition in={this.state.show} timeout={300} classNames="translate">
             <div className="music-album">
                 <Header title={album.name} ref="header"></Header>
                 <div style={{position:"relative"}}>
@@ -114,6 +119,7 @@ class Album extends React.Component {
                     <Loading title="正在加载..." show={this.state.loading}/>
                 </div>
             </div>
+            </CSSTransition>
         );
     }
 }
