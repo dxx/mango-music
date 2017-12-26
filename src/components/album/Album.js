@@ -71,6 +71,26 @@ class Album extends React.Component {
             }
         });
     }
+    /**
+     * 监听scroll
+     */
+    scroll = ({y}) => {
+        let albumBgDOM = ReactDOM.findDOMNode(this.refs.albumBg);
+        let albumFixedBgDOM = ReactDOM.findDOMNode(this.refs.albumFixedBg);
+        let playButtonWrapperDOM = ReactDOM.findDOMNode(this.refs.playButtonWrapper);
+        if (y < 0) {
+            if (Math.abs(y) + 55 > albumBgDOM.offsetHeight) {
+                albumFixedBgDOM.style.display = "block";
+            } else {
+                albumFixedBgDOM.style.display = "none";
+            }
+        } else {
+            let transform = `scale(${1 + y * 0.004}, ${1 + y * 0.004})`;
+            albumBgDOM.style["webkitTransform"] = transform;
+            albumBgDOM.style["transform"] = transform;
+            playButtonWrapperDOM.style.marginTop = `${y}px`;
+        }
+    }
     render() {
         let album = this.state.album;
         let songs = this.state.songs.map((song) => {
@@ -101,7 +121,7 @@ class Album extends React.Component {
                 </div>
                 <div ref="albumContainer" className="album-container">
                     <div className="album-scroll" style={this.state.loading === true ? {display:"none"} : {}}>
-                        <Scroll refresh={this.state.refreshScroll}>
+                        <Scroll refresh={this.state.refreshScroll} onScroll={this.scroll}>
                             <div className="album-wrapper">
                                 <div className="song-count">专辑 共{songs.length}首</div>
                                 <div className="song-list">
