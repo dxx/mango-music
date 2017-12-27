@@ -98,11 +98,12 @@ class Recommend extends React.Component {
             );
         });
         return (
-            <Scroll refresh={this.state.refreshScroll}
-                    onScroll={(e) => {
-                        /*检查懒加载组件是否出现在视图中，如果出现就加载组件*/
-                        forceCheck();}}>
-                <div className="music-recommend">
+            <div className="music-recommend">
+                <Scroll refresh={this.state.refreshScroll}
+                        onScroll={(e) => {
+                            /*检查懒加载组件是否出现在视图中，如果出现就加载组件*/
+                            forceCheck();}}>
+                    <div>
                     <div className="slider-container">
                         <div className="swiper-wrapper">
                             {
@@ -125,9 +126,10 @@ class Recommend extends React.Component {
                             {albums}
                         </div>
                     </div>
-                </div>
+                    </div>
+                </Scroll>
                 <Loading title="正在加载..." show={this.state.loading}/>
-            </Scroll>
+            </div>
         );
     }
 }
