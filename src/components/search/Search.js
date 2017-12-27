@@ -1,4 +1,6 @@
 import React from "react"
+import ReactDOM from "react-dom"
+import {getTransitionEndName} from "@/util/event-util"
 import Scroll from "@/common/scroll/Scroll"
 import Loading from "@/common/loading/Loading"
 import {getHotKey, search} from "@/api/search"
@@ -34,6 +36,7 @@ class Search extends React.Component {
 				}
 			}
 		});
+		this.initMusicIco();
 	}
 	handleSearch = (k) => {
 		return () => {
@@ -50,7 +53,7 @@ class Search extends React.Component {
 		});
 	}
 	handleClick = (data, type) => {
-		return () => {
+		return (e) => {
 			switch (type) {
 				case "album":
 					//跳转到专辑详情
@@ -65,6 +68,7 @@ class Search extends React.Component {
 					});
 					break;
 				case "song":
+					let nativeEvent = e.nativeEvent;
 					getSongVKey(data.mId).then((res) => {
 						if (res) {
 							if(res.code === CODE_SUCCESS) {
@@ -74,7 +78,7 @@ class Search extends React.Component {
 
 									this.props.setSongs([data]);
 									this.props.changeCurrentSong(data);
-									this.props.showMusicPlayer(true);
+									this.startMusicIcoAnimation(nativeEvent);
 								}
 							}
 						}
@@ -130,6 +134,57 @@ class Search extends React.Component {
 				}
 			}
 		});
+	}
+	/**
+	 * 初始化音符图标
+	 */
+	initMusicIco() {
+		this.musicIcos = [];
+		this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco1));
+		this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco2));
+		this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco3));
+
+		this.musicIcos.forEach((item) => {
+			//初始化状态
+			item.run = false;
+			let transitionEndName = getTransitionEndName(item);
+			item.addEventListener(transitionEndName, function() {
+				this.style.display = "none";
+				this.style["webkitTransform"] = "translate3d(0, 0, 0)";
+				this.style["transform"] = "translate3d(0, 0, 0)";
+				this.run = false;
+
+				let icon = this.querySelector("div");
+				icon.style["webkitTransform"] = "translate3d(0, 0, 0)";
+				icon.style["transform"] = "translate3d(0, 0, 0)";
+			}, false);
+		});
+	}
+	/**
+	 * 开始音符下落动画
+	 */
+	startMusicIcoAnimation({clientX, clientY}) {
+		if (this.musicIcos.length > 0) {
+			for (let i = 0; i < this.musicIcos.length; i++) {
+				let item = this.musicIcos[i];
+				//选择一个未在动画中的元素开始动画
+				if (item.run === false) {
+					item.style.top = clientY + "px";
+					item.style.left = clientX + "px";
+					item.style.display = "inline-block";
+					setTimeout(() => {
+						item.run = true;
+						item.style["webkitTransform"] = "translate3d(0, 1000px, 0)";
+						item.style["transform"] = "translate3d(0, 1000px, 0)";
+
+						let icon = item.querySelector("div");
+						icon.style["webkitTransform"] = "translate3d(-30px, 0, 0)";
+						icon.style["transform"] = "translate3d(-30px, 0, 0)";
+					}, 10);
+					break;
+				}
+			}
+		}
 	}
 	render() {
 		let album = this.state.album;
@@ -211,6 +266,15 @@ class Search extends React.Component {
 						</div>
 						<Loading title="正在加载..." show={this.state.loading}/>
 					</Scroll>
+				</div>
+				<div className="music-ico" ref="musicIco1">
+					<div className="icon-fe-music"></div>
+				</div>
+				<div className="music-ico" ref="musicIco2">
+					<div className="icon-fe-music"></div>
+				</div>
+				<div className="music-ico" ref="musicIco3">
+					<div className="icon-fe-music"></div>
 				</div>
 			</div>
 		);

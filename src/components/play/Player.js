@@ -108,6 +108,8 @@ class Player extends React.Component {
 				}
 			}
 		}, false);
+
+		this.audioDOM.addEventListener("error", () => {alert("加载歌曲出错！")}, false);
 	}
 	/**
 	 * 播放或暂停
