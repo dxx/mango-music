@@ -1,4 +1,5 @@
 import React from "react"
+import ReactDOM from "react-dom"
 import { CSSTransition } from "react-transition-group"
 import Scroll from "@/common/scroll/Scroll"
 
@@ -8,13 +9,21 @@ class PlayerList extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.changeIndex = {
+			shouldChange: false,
+			index: 0
+		};
+
 		this.state = {
 			showList: false
 		};
 	}
 	componentDidUpdate() {
 		//重置当前歌曲位置
-		if (this.props.playSongs.length === 1) {this.props.changeCurrentIndex(0)};
+		if (this.changeIndex.shouldChange === true) {
+			this.props.changeCurrentIndex(this.changeIndex.index);
+			this.changeIndex.shouldChange = false;
+		}
 	}
 	showOrHidePlayList = () => {
 		this.props.showList(false);
@@ -44,6 +53,14 @@ class PlayerList extends React.Component {
 			}
 		};
 	}
+	/**
+	 * 滚动到当前播放歌曲
+	 */
+	scrollToCurrentItem() {
+		this.refs.scroll.bScroll.scrollToElement(
+			ReactDOM.findDOMNode(this.refs[`item${this.props.currentIndex}`])
+		);
+	}
 	render() {
 		let playList = this.props.playSongs;
 		return (
@@ -54,8 +71,12 @@ class PlayerList extends React.Component {
 					}}
 					onEntered={() => {
 						this.refs.scroll.refresh();
+						this.scrollToCurrentItem();
 					}}
-					onExited={() => {this.setState({showList:false})}}>
+					onExited={() => {
+						this.setState({showList:false});
+						this.scrollToCurrentItem();
+					}}>
 				<div className="play-list-bg" style={this.state.showList === true ? {display:"block"} : {display:"none"}}
 				onClick={this.showOrHidePlayList}>
 					{/*播放列表*/}
@@ -69,11 +90,20 @@ class PlayerList extends React.Component {
 							<div>
 							{
 								playList.map((song, index) => {
+									let isCurrent = false;
+									if (song.id === this.props.currentSong.id) {
+										isCurrent = true;
+										//设置当前播放歌曲位置，并提示父组件更新当前歌曲位置
+										this.changeIndex = {
+											shouldChange: true,
+											index
+										};
+									}
 									return (
-										<div className="play-list-item" key={song.id}>
+										<div className="play-list-item" key={song.id} ref={`item${index}`}>
 											<div className="item-left">{index + 1 < 10 ? `0${index + 1}` : index + 1}</div>
 											<div className="item-right">
-												<div className={index === this.props.currentIndex ? "song current" : "song"} onClick={this.playSong(song, index)}>
+												<div className={isCurrent ? "song current" : "song"} onClick={this.playSong(song, index)}>
 													<span className="song-name">{song.name}</span>
 													<span className="song-singer">{song.singer}</span>
 												</div>

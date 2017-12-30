@@ -43,6 +43,7 @@ class Singer extends React.Component {
 					let songList = res.data.list;
 					let songs = [];
 					songList.forEach(item => {
+						if (item.musicData.pay.payplay === 1) { return }
 						let song = SongModel.createSong(item.musicData);
 						//获取歌曲vkey
 						this.getSongUrl(song, song.mId);
