@@ -48,6 +48,7 @@ class Player extends React.Component {
 		this.audioDOM = ReactDOM.findDOMNode(this.refs.audio);
 		this.singerImgDOM = ReactDOM.findDOMNode(this.refs.singerImg);
 		this.playerDOM = ReactDOM.findDOMNode(this.refs.player);
+		this.playerBgDOM = ReactDOM.findDOMNode(this.refs.playerBg);
 
 		this.audioDOM.addEventListener("canplay", () => {
 				
@@ -314,7 +315,12 @@ class Player extends React.Component {
 					</div>
 					<div className="singer-middle">
 						<div className="singer-img" ref="singerImg">
-							<img src={playBg} alt={song.name}/>
+							<img src={playBg} alt={song.name} onLoad={
+								(e) => {
+									/*图片加载完成后设置背景，防止图片加载过慢导致没有背景*/
+									this.playerBgDOM.style.backgroundImage = `url(${playBg}`;
+								}
+							}/>
 						</div>
 					</div>
 					<div className="singer-bottom">
@@ -347,8 +353,8 @@ class Player extends React.Component {
 							</div>
 						</div>
 					</div>
-					<div className="player-bg" style={{backgroundImage:`url(${playBg})`}}></div>
-					<audio ref="audio" ></audio>
+					<div className="player-bg" ref="playerBg"></div>
+					<audio ref="audio"></audio>
 				</div>
 				</CSSTransition>
 				<MiniPlayer song={song} progress={this.state.playProgress} 
