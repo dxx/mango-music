@@ -9,7 +9,7 @@ import * as ActionTypes from "./actionTypes"
 const initialState = {
 	showStatus: false,  //显示状态
 	song: {},  //当前歌曲
-	songs: [],  //歌曲列表
+	songs: []  //歌曲列表
 };
 
 //拆分Reducer

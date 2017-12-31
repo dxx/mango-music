@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import {getTransitionEndName} from "@/util/event-util"
+import {getTransitionEndName} from "@/util/event"
 import Scroll from "@/common/scroll/Scroll"
 import Loading from "@/common/loading/Loading"
 import {getHotKey, search} from "@/api/search"
