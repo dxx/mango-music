@@ -318,7 +318,7 @@ class Player extends React.Component {
 							<img src={playBg} alt={song.name} onLoad={
 								(e) => {
 									/*图片加载完成后设置背景，防止图片加载过慢导致没有背景*/
-									this.playerBgDOM.style.backgroundImage = `url(${playBg}`;
+									this.playerBgDOM.style.backgroundImage = `url("${playBg}")`;
 								}
 							}/>
 						</div>

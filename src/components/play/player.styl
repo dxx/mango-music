@@ -15,10 +15,10 @@
       transition: transform .3s
       transform: rotateZ(0deg)
   &.player-rotate-exit
-    transform: rotateZ(0deg) translate3d(0, 0 ,0)
+    transform: rotateZ(0deg) translate3d(0, 0, 0)
     &.player-rotate-exit-active
       transition: all .3s
-      transform: rotateZ(90deg) translate3d(100%, 0 ,0)
+      transform: rotateZ(90deg) translate3d(100%, 0, 0)
   .header
     position: fixed
     width: 100%
@@ -49,6 +49,7 @@
     background-size: cover
     filter: blur(20px);
     opacity: .6
+    transform: translate3d(0, 0, 0)
     transition: background-image .3s
   .singer-top
     margin-top: 70px
