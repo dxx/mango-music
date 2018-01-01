@@ -9,6 +9,7 @@ import MusicPlayer from "./play/MusicPlayer"
 import Singer from "../containers/Singer"
 
 import logo from "../assets/imgs/logo.png"
+import "../assets/stylus/reset.styl"
 import "../assets/stylus/font.styl"
 import "./App.styl"
 
