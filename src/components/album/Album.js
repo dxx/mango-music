@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import {CSSTransition} from "react-transition-group"
+import {getTransitionEndName} from "@/util/event"
 import Header from "@/common/header/Header"
 import Scroll from "@/common/scroll/Scroll"
 import Loading from "@/common/loading/Loading"
@@ -58,6 +59,7 @@ class Album extends React.Component {
                 }
             }
         });
+        this.initMusicIco();
     }
     getSongUrl(song, mId) {
         getSongVKey(mId).then((res) => {
@@ -72,12 +74,64 @@ class Album extends React.Component {
         });
     }
     /**
+     * 初始化音符图标
+     */
+    initMusicIco() {
+        this.musicIcos = [];
+        this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco1));
+        this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco2));
+        this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco3));
+
+        this.musicIcos.forEach((item) => {
+            //初始化状态
+            item.run = false;
+            let transitionEndName = getTransitionEndName(item);
+            item.addEventListener(transitionEndName, function() {
+                this.style.display = "none";
+                this.style["webkitTransform"] = "translate3d(0, 0, 0)";
+                this.style["transform"] = "translate3d(0, 0, 0)";
+                this.run = false;
+
+                let icon = this.querySelector("div");
+                icon.style["webkitTransform"] = "translate3d(0, 0, 0)";
+                icon.style["transform"] = "translate3d(0, 0, 0)";
+            }, false);
+        });
+    }
+    /**
+     * 开始音符下落动画
+     */
+    startMusicIcoAnimation({clientX, clientY}) {
+        if (this.musicIcos.length > 0) {
+            for (let i = 0; i < this.musicIcos.length; i++) {
+                let item = this.musicIcos[i];
+                //选择一个未在动画中的元素开始动画
+                if (item.run === false) {
+                    item.style.top = clientY + "px";
+                    item.style.left = clientX + "px";
+                    item.style.display = "inline-block";
+                    setTimeout(() => {
+                        item.run = true;
+                        item.style["webkitTransform"] = "translate3d(0, 1000px, 0)";
+                        item.style["transform"] = "translate3d(0, 1000px, 0)";
+
+                        let icon = item.querySelector("div");
+                        icon.style["webkitTransform"] = "translate3d(-30px, 0, 0)";
+                        icon.style["transform"] = "translate3d(-30px, 0, 0)";
+                    }, 10);
+                    break;
+                }
+            }
+        }
+    }
+    /**
      * 选择歌曲
      */
     selectSong(song) {
         return (e) => {
             this.props.setSongs([song]);
             this.props.changeCurrentSong(song);
+            this.startMusicIcoAnimation(e.nativeEvent);
         };
     }
     /**
@@ -157,6 +211,15 @@ class Album extends React.Component {
                         </Scroll>
                     </div>
                     <Loading title="正在加载..." show={this.state.loading}/>
+                </div>
+                <div className="music-ico" ref="musicIco1">
+                    <div className="icon-fe-music"></div>
+                </div>
+                <div className="music-ico" ref="musicIco2">
+                    <div className="icon-fe-music"></div>
+                </div>
+                <div className="music-ico" ref="musicIco3">
+                    <div className="icon-fe-music"></div>
                 </div>
             </div>
             </CSSTransition>

@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { CSSTransition } from "react-transition-group"
 import Progress from "./Progress"
 import MiniPlayer from "./MiniPlayer"
 import {Song} from "@/model/song"
@@ -68,7 +69,9 @@ class Player extends React.Component {
                         currentIndex = currentIndex + 1;
                     }
                 } else if (this.state.currentPlayMode === 1) {  //单曲循环
-                    currentIndex = this.currentIndex;
+                    //继续播放当前歌曲
+                    this.audioDOM.play();
+                    return;
                 } else {  //随机播放
                     let index = parseInt(Math.random() * this.props.playSongs.length, 10);
                     currentIndex = index;
@@ -258,7 +261,14 @@ class Player extends React.Component {
         song.playStatus = this.state.playStatus;
         return (
             <div className="player-container">
-                <div className="player" ref="player" style={{display:this.props.showStatus === true ? "block" : "none"}}>
+                <CSSTransition in={this.props.showStatus} timeout={300} classNames="player-rotate"
+                               onEnter={() => {
+                                   this.playerDOM.style.display = "block";
+                               }}
+                               onExited={() => {
+                                   this.playerDOM.style.display = "none";
+                               }}>
+                <div className="player" ref="player">
                     <div className="header">
                         <span className="header-back" onClick={this.hidePlayer}>
                             <i className="icon-back"></i>
@@ -315,6 +325,7 @@ class Player extends React.Component {
                     <div className="player-bg" ref="playerBg"></div>
                     <audio ref="audio"></audio>
                 </div>
+                </CSSTransition>
                 <MiniPlayer song={song} progress={this.state.playProgress}
                             playOrPause={this.playOrPause}
                             next={this.next}
