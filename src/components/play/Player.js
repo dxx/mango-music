@@ -240,8 +240,7 @@ class Player extends React.Component {
 			this.stopImgRotate();
 
 			this.setState({
-				playStatus: false,
-				canplay: false
+				playStatus: false
 			});
 			this.dragProgress = progress;
 		}
