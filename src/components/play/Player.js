@@ -295,7 +295,6 @@ class Player extends React.Component {
 					onEnter={() => {
 						this.playerDOM.style.display = "block";
 					}}
-					onEntered={() => {}}
 					onExited={() => {
 						this.playerDOM.style.display = "none";
 					}}>
