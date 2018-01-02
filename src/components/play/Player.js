@@ -51,7 +51,6 @@ class Player extends React.Component {
 		this.playerBgDOM = ReactDOM.findDOMNode(this.refs.playerBg);
 
 		this.audioDOM.addEventListener("canplay", () => {
-				
 				this.audioDOM.play();
 				this.startImgRotate();
 
@@ -80,7 +79,9 @@ class Player extends React.Component {
 						currentIndex = currentIndex + 1;
 					}
 				} else if (this.state.currentPlayMode === 1) {  //单曲循环
-					currentIndex = this.currentIndex;
+					//继续播放当前歌曲
+					this.audioDOM.play();
+					return;
 				} else {  //随机播放
 					let index = parseInt(Math.random() * this.props.playSongs.length, 10);
 					currentIndex = index;
