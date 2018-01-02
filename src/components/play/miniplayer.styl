@@ -1,0 +1,73 @@
+.mini-player
+  position: fixed
+  left: 0
+  bottom: 0
+  z-index: 1000
+  width: 100%
+  height: 52px
+  background-color: #212121
+  color: #FFFFFF
+  .player-img
+    position: absolute
+    width: 46px
+    height: 46px
+    left: 10px
+    top: -6px
+    border: 2px solid rgba(221, 221, 221, 0.3)
+    border-radius: 50%
+    &.rotate
+      animation: rotate 15s linear infinite
+    img
+      width: 100%
+      height: @width
+      border-radius: 50%
+  .player-center
+    height: 52px
+    padding: 6px 15px 0 66px
+    box-sizing: border-box
+    span
+      display: block
+    .song, .singer
+      max-width: 220px
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+    .song
+      padding-top: 5px
+      font-size: 14px
+    .singer
+      margin-top: 2px
+      font-size: 12px
+      color: rgba(221,221,221,0.7);
+    .progress-wrapper
+      .progress-bar
+        height: 2px
+  .player-right
+    position: absolute
+    top: 15px
+    right: 15px
+    padding: 1px
+    color: #FFD700
+    font-size: 26px
+    .ml-10
+      margin-left: 10px
+  .filter
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: @width
+    overflow: hidden
+    z-index: -1
+    &:after
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      z-index: -1
+      margin: -30px
+      background: linear-gradient( top, #000000, #CCCCCC)
+      filter: blur(30px)
+      opacity: .6
