@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect, NavLink} from "react-r
 import Recommend from "./recommend/Recommend"
 import Ranking from "./ranking/Ranking"
 import Search from "./search/Search"
-import Player from "../containers/Player"
+import MusicPlayer from "./play/MusicPlayer"
 
 import logo from "../assets/imgs/logo.png"
 import '../assets/stylus/reset.styl'
@@ -49,7 +49,7 @@ class App extends React.Component {
                      <Route component={Recommend} />
                  </Switch>
             </div>
-            <Player/>
+            <MusicPlayer/>
           </div>
         </Router>
     );

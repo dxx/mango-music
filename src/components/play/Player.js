@@ -77,7 +77,8 @@ class Player extends React.Component {
                     currentIndex = index;
                 }
                 this.props.changeCurrentSong(this.props.playSongs[currentIndex]);
-                this.currentIndex = currentIndex;
+                //调用父组件修改当前歌曲位置
+                this.props.changeCurrentIndex(currentIndex);
 
             } else {
                 if (this.state.currentPlayMode === 1) {  //单曲循环
@@ -138,7 +139,8 @@ class Player extends React.Component {
                 currentIndex = index;
             }
             this.props.changeCurrentSong(this.props.playSongs[currentIndex]);
-            this.currentIndex = currentIndex;
+            //调用父组件修改当前歌曲位置
+            this.props.changeCurrentIndex(currentIndex);
         }
     }
     /**
@@ -160,7 +162,8 @@ class Player extends React.Component {
                 currentIndex = index;
             }
             this.props.changeCurrentSong(this.props.playSongs[currentIndex]);
-            this.currentIndex = currentIndex;
+            //调用父组件修改当前歌曲位置
+            this.props.changeCurrentIndex(currentIndex);
         }
     }
     /**
@@ -180,6 +183,12 @@ class Player extends React.Component {
     stopImgRotate = () => {
         this.singerImgDOM.style["webkitAnimationPlayState"] = "paused";
         this.singerImgDOM.style["animationPlayState"] = "paused";
+    }
+    /**
+     * 显示播放列表
+     */
+    showPlayList = () => {
+        this.props.showList(true);
     }
     /**
      * 隐藏播放器
@@ -241,6 +250,8 @@ class Player extends React.Component {
         }
     }
     render() {
+        this.currentIndex = this.props.currentIndex;
+
         //从redux中获取当前播放歌曲
         if (this.props.currentSong && this.props.currentSong.url) {
             //当前歌曲发发生变化
@@ -316,7 +327,7 @@ class Player extends React.Component {
                                 <div className="next-button" onClick={this.next}>
                                     <i className="icon-next"></i>
                                 </div>
-                                <div className="play-list-button">
+                                <div className="play-list-button" onClick={this.showPlayList}>
                                     <i className="icon-play-list"></i>
                                 </div>
                             </div>
