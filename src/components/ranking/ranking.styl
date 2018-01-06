@@ -4,28 +4,27 @@
   .ranking-list
     padding-bottom: 15px
     .ranking-wrapper
+      display: flex
       margin: 15px
       background-color: #333333
-      font-size: 0
       .left
-        display: inline-block
+        flex: 0 0 100px
         width: w = 100px
         height: h = @width
         img
           width: w
           height: h
       .right
-        display: inline-block
+        flex: 1
         line-height: 22px
         font-size: 14px
-        margin-left: 10px
-        vertical-align: top
+        padding: 0 10px
+        overflow: hidden
         .ranking-title
           font-size: 16px
           color: #FFFFFF
           margin: 4px 0 6px 0
         .top-song, .ranking-title
-          max-width: 180px
           overflow: hidden
           text-overflow: ellipsis
           white-space: nowrap

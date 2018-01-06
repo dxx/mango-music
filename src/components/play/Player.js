@@ -3,9 +3,9 @@ import ReactDOM from "react-dom"
 import { CSSTransition } from "react-transition-group"
 import Progress from "./Progress"
 import MiniPlayer from "./MiniPlayer"
+import {Song} from "@/model/song"
 
 import "./player.styl"
-import {Song} from "@/model/song"
 
 class Player extends React.Component {
 	constructor(props) {
@@ -21,7 +21,7 @@ class Player extends React.Component {
 			"渔圈/欧阳朵"
 		);*/
 
-		this.currentSong = new Song( 0, "", "", "", 0, "", "");
+		this.currentSong = new Song(0, "", "", "", 0, "", "");
 		this.currentIndex = 0;
 		//拖拽进度
 		this.dragProgress = 0;
@@ -117,7 +117,12 @@ class Player extends React.Component {
 	 * 播放或暂停
 	 */
 	playOrPause = () => {
-		if(this.audioDOM.paused){
+		if(this.state.playStatus === false){
+			//表示第一次播放
+			if (this.first === undefined) {
+				this.audioDOM.src = this.currentSong.url;
+				this.first = true;
+			}
 			this.audioDOM.play();
 			this.startImgRotate();
 
@@ -276,9 +281,11 @@ class Player extends React.Component {
 			//当前歌曲发发生变化
 			if (this.currentSong.id !== this.props.currentSong.id) {
 				this.currentSong = this.props.currentSong;
-				this.audioDOM.src = this.currentSong.url;
-				//加载资源，ios需要调用此方法
-				this.audioDOM.load();
+				if (this.audioDOM) {
+					this.audioDOM.src = this.currentSong.url;
+					//加载资源，ios需要调用此方法
+					this.audioDOM.load();
+				}
 			}
 		}
 		let song = this.currentSong;
