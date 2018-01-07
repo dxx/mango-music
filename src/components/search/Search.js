@@ -9,6 +9,7 @@ import {CODE_SUCCESS} from "@/api/config"
 import * as SingerModel from "@/model/singer"
 import * as AlbumModel from "@/model/album"
 import * as SongModel from "@/model/song"
+
 import "./search.styl"
 
 class Search extends React.Component {

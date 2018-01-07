@@ -10,6 +10,7 @@ import {getSongVKey} from "@/api/song"
 import {CODE_SUCCESS} from "@/api/config"
 import * as SingerModel from "@/model/singer"
 import * as SongModel from "@/model/song"
+
 import "./singer.styl"
 
 class Singer extends React.Component {

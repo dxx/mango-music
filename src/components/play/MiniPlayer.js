@@ -1,5 +1,6 @@
 import React from "react"
 import Progress from "./Progress"
+
 import "./miniplayer.styl"
 
 class MiniPlayer extends React.Component {

@@ -10,6 +10,7 @@ import {getSongVKey} from "@/api/song"
 import {CODE_SUCCESS} from "@/api/config"
 import * as RankingModel from "@/model/ranking"
 import * as SongModel from "@/model/song"
+
 import "./rankinginfo.styl"
 
 class RankingInfo extends React.Component {

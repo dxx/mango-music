@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import PropTypes from "prop-types"
+
 import "./progress.styl"
 
 class Progress extends React.Component {

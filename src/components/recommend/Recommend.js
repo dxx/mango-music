@@ -8,6 +8,7 @@ import Album from "@/containers/Album"
 import Scroll from "@/common/scroll/Scroll"
 import Loading from "@/common/loading/Loading"
 import * as AlbumModel from "@/model/album"
+
 import "./recommend.styl"
 import "swiper/dist/css/swiper.css"
 
