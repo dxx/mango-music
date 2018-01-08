@@ -1,8 +1,11 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import {Route} from "react-router-dom"
 import {getTransitionEndName} from "@/util/event"
 import Scroll from "@/common/scroll/Scroll"
 import Loading from "@/common/loading/Loading"
+import Album from "@/containers/Album"
+import Singer from "@/containers/Singer"
 import {getHotKey, search} from "@/api/search"
 import {getSongVKey} from "@/api/song"
 import {CODE_SUCCESS} from "@/api/config"
@@ -59,13 +62,13 @@ class Search extends React.Component {
 				case "album":
 					//跳转到专辑详情
 					this.props.history.push({
-						pathname: `/recommend/${data}`
+						pathname: `${this.props.match.url}/album/${data}`
 					});
 					break;
 				case "singer":
 					//跳转到歌手详情
 					this.props.history.push({
-						pathname: `/singer/${data}`
+						pathname: `${this.props.match.url}/singer/${data}`
 					});
 					break;
 				case "song":
@@ -277,6 +280,8 @@ class Search extends React.Component {
 				<div className="music-ico" ref="musicIco3">
 					<div className="icon-fe-music"></div>
 				</div>
+				<Route path={`${this.props.match.url + '/album/:id'}`} component={Album} />
+				<Route path={`${this.props.match.url + '/singer/:id'}`} component={Singer} />
 			</div>
 		);
 	}

@@ -14,6 +14,8 @@ const URL = {
 	search: "https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp",
 	/*热搜*/
 	hotkey: "https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg",
+	/*歌手列表*/
+	singerList: "https://c.y.qq.com/v8/fcg-bin/v8.fcg",
 	/*歌手详情*/
 	singerInfo: "https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg",
 	/*歌曲vkey*/

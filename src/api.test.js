@@ -2,7 +2,7 @@ import {getCarousel, getNewAlbum, getAlbumInfo} from "./api/recommend";
 import {getRankingList, getRankingInfo} from "./api/ranking";
 import {getSongVKey} from "./api/song";
 import {getHotKey, search} from "./api/search"
-import {getSingerInfo} from "./api/singer"
+import {getSingerList, getSingerInfo} from "./api/singer"
 
 getCarousel().then((res) => {
 	console.log("获取轮播：");
@@ -55,6 +55,13 @@ getHotKey().then((res) => {
 
 search("欧阳朵").then((res) => {
 	console.log("搜索：");
+	if (res) {
+		console.log(res);
+	}
+});
+
+getSingerList(1, "all_all_all").then((res) => {
+	console.log("获取歌手列表：");
 	if (res) {
 		console.log(res);
 	}
