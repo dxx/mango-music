@@ -34,9 +34,9 @@ class RankingInfo extends React.Component {
         rankingContainerDOM.style.top = rankingBgDOM.offsetHeight + "px";
 
         getRankingInfo(this.props.match.params.id).then((res) => {
-            //console.log("获取排行榜详情：");
+            console.log("获取排行榜详情：");
             if (res) {
-                //console.log(res);
+                console.log(res);
                 if (res.code === CODE_SUCCESS) {
                     let ranking = RankingModel.createRankingByDetail(res.topinfo);
                     ranking.info = res.topinfo.info;
