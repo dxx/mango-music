@@ -7,8 +7,6 @@ Online preview address: https://code-mcx.github.io/mango-music.
 ### Instruction
 This is the fourth chapter of the code
 
-[Address](https://juejin.im/post/5a40aea26fb9a044fd12005e)
-
 ## Available Scripts
 
 ### `npm start`
