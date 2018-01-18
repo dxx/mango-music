@@ -15,6 +15,8 @@ class Scroll extends React.Component {
         this.scrollView = ReactDOM.findDOMNode(this.refs.scrollView);
         if (!this.bScroll) {
             this.bScroll = new BScroll(this.scrollView, {
+                scrollX: this.props.direction === "horizontal",
+                scrollY: this.props.direction === "vertical",
                 //实时派发scroll事件
                 probeType: 3,
                 click: this.props.click
@@ -48,12 +50,14 @@ class Scroll extends React.Component {
 }
 
 Scroll.defaultProps = {
+    direction: "vertical",
     click: true,
     refresh: false,
     onScroll: null
 };
 
 Scroll.propTypes = {
+    direction: PropTypes.oneOf(['vertical', 'horizontal']),
     //是否启用点击
     click: PropTypes.bool,
     //是否刷新

@@ -1,0 +1,55 @@
+.music-singers
+  width: 100%
+  height: 100%
+  .nav
+    padding: 10px 20px
+    font-size: 14px
+    color: rgba(221,221,221,0.7)
+    .tag, .index
+      display: flex
+      align-items: center
+      height: 30px
+      overflow: hidden
+      a
+        flex: 0 0 auto
+        padding: 3px 8px
+        text-decoration: none
+        color: inherit
+        text-align: center
+        border: 1px solid transparent
+        box-sizing: border-box
+        cursor: default
+        &.choose
+          color: #ffd700
+          border: 1px solid #ffd700
+          border-radius: 10px
+  .singer-list
+    position: absolute
+    top: 80px
+    left: 0
+    right: 0
+    bottom: 0
+    padding: 0 20px
+    .singer-wrapper
+      margin: 10px 0
+      &:first-child
+        margin-top: 0
+      &:last-child
+        padding-bottom: 10px
+    .singer-img, .singer-name
+      display: inline-block
+    .singer-img
+      width: 50px
+      height: @width
+      img
+        border-radius: 50%
+    .singer-name
+      height: 50px
+      max-width: 220px
+      line-height: 50px
+      margin-left: 10px
+      vertical-align: top
+      color: #FFFFFF
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
