@@ -8,6 +8,7 @@ import Singer from "@/containers/Singer"
 import {getSingerList} from "@/api/singer"
 import {CODE_SUCCESS} from "@/api/config"
 import * as SingerModel from "@/model/singer"
+import "core-js/es6/array"
 
 import "./singerlist.styl"
 
@@ -58,7 +59,7 @@ class SingerList extends React.Component {
 			{key:"W", name:"W"},
 			{key:"X", name:"X"},
 			{key:"Y", name:"Y"},
-			{key:"Z", name:"Z"},
+			{key:"Z", name:"Z"}
 		];
 
 		this.state = {
