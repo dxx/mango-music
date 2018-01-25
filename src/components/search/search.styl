@@ -5,9 +5,9 @@
     padding: 20px
   .search-box
     padding: 10px
-    background-color: #333333
     border-radius: 3px
     line-height: 0
+    /*background-color: #333333*/
     .search-input
       width: 80%
       margin-left: 10px
@@ -15,7 +15,7 @@
       border:none
       outline: none
       vertical-align: top
-      color: #DDDDDD
+      /*color: #DDDDDD*/
   .cancel-button
     position: absolute
     top: 50%
@@ -29,10 +29,11 @@
     position: absolute
     left: 20px
     right: 20px
+    padding-top: 10px
     display: none
     .title
       font-size: 14px
-      color: #FFD700
+      /*color: #FFD700*/
     .hot-list
       .hot-item
         float: left
@@ -41,15 +42,15 @@
         margin-top: 10px
         border-radius: 10px
         font-size: 14px
-        background-color: #333333
+        /*background-color: #333333*/
   .search-result
     position: absolute
     left: 12px
     right: 20px
-    top: 70px
+    top: 76px
     bottom: 0
     .album-wrapper
-      margin: 10px 0 0 6px
+      padding: 10px 0 0 6px
       .left
         display: inline-block
         width: 40px
@@ -69,13 +70,13 @@
         .song
           margin-top: 5px
           padding: 1px 0
-          color: #FFFFFF
           font-size: 14px
+          /*color: #FFFFFF*/
         .singer
           margin-top: 5px
           font-size: 12px
     .singer-wrapper
-      margin: 10px 0 0 6px
+      padding: 10px 0 0 6px
       .left
         display: inline-block
         width: 40px
@@ -91,8 +92,8 @@
         vertical-align: top
         .singer
           margin-top: 5px
-          color: #FFFFFF
           font-size: 14px
+          /*color: #FFFFFF*/
         .info
           margin-top: 5px
           font-size: 12px
@@ -116,8 +117,10 @@
           white-space: nowrap
         .song
           padding: 1px 0
-          color: #FFFFFF
           font-size: 14px
+          /*color: #FFFFFF*/
         .singer
           margin-top: 5px
           font-size: 12px
+      &:last-child
+        padding-bottom: 10px

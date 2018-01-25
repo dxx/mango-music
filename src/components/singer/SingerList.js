@@ -1,13 +1,15 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import {Route} from "react-router-dom"
-import LazyLoad, { forceCheck } from "react-lazyload";
+import LazyLoad, { forceCheck } from "react-lazyload"
 import Scroll from "@/common/scroll/Scroll"
 import Loading from "@/common/loading/Loading"
 import Singer from "@/containers/Singer"
 import {getSingerList} from "@/api/singer"
 import {CODE_SUCCESS} from "@/api/config"
 import * as SingerModel from "@/model/singer"
+
+import "core-js/es6/array"
 
 import "./singerlist.styl"
 
@@ -58,7 +60,7 @@ class SingerList extends React.Component {
 			{key:"W", name:"W"},
 			{key:"X", name:"X"},
 			{key:"Y", name:"Y"},
-			{key:"Z", name:"Z"},
+			{key:"Z", name:"Z"}
 		];
 
 		this.state = {
@@ -172,7 +174,7 @@ class SingerList extends React.Component {
 				);
 			});
 		return (
-			<div className="music-singers">
+			<div className="music-singers skin-music-singers">
 				<div className="nav">
 					<Scroll direction="horizontal">
 						<div className="tag" ref="tag">

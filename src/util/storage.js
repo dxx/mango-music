@@ -1,7 +1,14 @@
 /**
- * 歌曲本地持久化
+ * 本地持久化对象
  */
 let localStorage = {
+	setSkin(key) {
+	    window.localStorage.setItem("skin", key);
+	},
+	getSkin() {
+	    let skin = window.localStorage.getItem("skin");
+	    return !skin ? "mangoYellow" : skin;
+	},
 	setCurrentSong(song) {
 		window.localStorage.setItem("song", JSON.stringify(song));
 	},

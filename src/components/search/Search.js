@@ -72,7 +72,7 @@ class Search extends React.Component {
 					});
 					break;
 				case "song":
-					let nativeEvent = e.nativeEvent;
+					this.startMusicIcoAnimation(e.nativeEvent);
 					getSongVKey(data.mId).then((res) => {
 						if (res) {
 							if(res.code === CODE_SUCCESS) {
@@ -82,7 +82,6 @@ class Search extends React.Component {
 
 									this.props.setSongs([data]);
 									this.props.changeCurrentSong(data);
-									this.startMusicIcoAnimation(nativeEvent);
 								}
 							}
 						}
@@ -194,9 +193,9 @@ class Search extends React.Component {
 		let album = this.state.album;
 		let singer = this.state.singer;
 		return (
-			<div className="music-search">
-				<div className="search-box-wrapper">
-					<div className="search-box">
+			<div className="music-search skin-search">
+				<div className="search-box-wrapper skin-search-box-wrapper">
+					<div className="search-box skin-search-box">
 						<i className="icon-search"></i>
 						<input type="text" className="search-input" placeholder="搜索歌曲、歌手、专辑" 
 						value={this.state.w}
@@ -226,7 +225,7 @@ class Search extends React.Component {
 						}
 					</div>
 				</div>
-				<div className="search-result" style={{display: this.state.w ? "block" : "none"}}>
+				<div className="search-result skin-search-result" style={{display: this.state.w ? "block" : "none"}}>
 					<Scroll ref="scroll">
 						<div>
 						{/*专辑*/}

@@ -93,7 +93,7 @@ class Recommend extends React.Component {
 			//通过函数创建专辑对象
 			let album = AlbumModel.createAlbumByList(item);
 			return (
-				<div className="album-wrapper" key={album.mId}
+				<div className="album-wrapper skin-album-wrapper" key={album.mId}
 					 onClick={this.toAlbumDetail(`${match.url + '/' + album.mId}`)}>
 					<div className="left">
 						<LazyLoad height={60}>
@@ -138,7 +138,7 @@ class Recommend extends React.Component {
 						<div className="swiper-pagination"></div>
 					</div>
 					<div className="album-container" style={this.state.loading === true ? {display:"none"} : {}}>
-						<h1 className="title">最新专辑</h1>
+						<h1 className="title skin-recommend-title">最新专辑</h1>
 						<div className="album-list">
 							{albums}
 						</div>

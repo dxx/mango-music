@@ -25,7 +25,6 @@ class Player extends React.Component {
 		this.currentIndex = 0;
 		//拖拽进度
 		this.dragProgress = 0;
-		this.isFirstPlay = true;
 
 		//播放模式： list-列表 single-单曲 shuffle-随机
 		this.playModes = ["list", "single", "shuffle"];
@@ -35,13 +34,6 @@ class Player extends React.Component {
 			playProgress: 0,
 			playStatus: false,
 			currentPlayMode: 0
-		}
-	}
-	componentDidUpdate() {
-		//兼容手机端canplay事件触发后第一次调用play()方法无法自动播放的问题
-		if (this.isFirstPlay === true) {
-			this.audioDOM.play();
-			this.isFirstPlay = false;
 		}
 	}
 	componentDidMount() {
@@ -110,7 +102,7 @@ class Player extends React.Component {
 				}
 			}
 		}, false);
-
+		
 		this.audioDOM.addEventListener("error", () => {alert("加载歌曲出错！")}, false);
 	}
 	/**

@@ -1,13 +1,18 @@
 .app
   width: 100%
   height: 100%
-  color: #DDDDDD
-  background-color: #212121
+  /*color: #DDDDDD
+  background-color: #212121*/
   .app-header
     height: 55px
     line-height: 55px
-    color: #FFD700
     text-align: center
+    position: relative
+    .app-more
+      position: absolute
+      top: 15px
+      left: 15px
+      font-size: 20px
     .app-logo
       width: 30px
       height: 25px
@@ -21,15 +26,14 @@
       font-weight: 300
   .music-tab
     display: flex
-    height: 30px
     line-height: 30px
-    color: #DDDDDD
     text-align: center
+    /*color: #DDDDDD*/
     .tab-item
       flex: 1
   .music-view
     position: fixed
-    top: 88px
+    top: 87px
     left: 0
     bottom: 52px
     width: 100%
@@ -38,9 +42,9 @@
   display: block
   color: inherit
   text-decoration: none
-  &.active
+  /*&.active
       color: #FFD700
-      border-bottom: 2px solid #FFD700
+      border-bottom: 2px solid #FFD700*/
 
 /*子路由动画*/
 .translate-enter

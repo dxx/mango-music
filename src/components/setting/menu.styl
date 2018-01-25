@@ -1,0 +1,35 @@
+.bottom-container
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: @width
+    z-index: 9999
+    background-color: rgba(0, 0, 0, .7)
+    display: none
+    &.fade-enter
+      opacity: 0
+      &.fade-enter-active
+        transition: opacity .3s
+        transform: translate3d(0, 0, 0)
+        opacity: 1
+    &.fade-exit
+      transition: opacity .3s
+      transform: translate3d(0, 0, 0)
+      opacity: 1
+      &.fade-exit-active
+        opacity: 0
+    .bottom-wrapper
+      position: absolute
+      bottom: 0
+      width: 100%
+      text-align: center
+      font-size: 15px
+      color: #333333
+      background-color: #EEEEEE
+      div
+        height: 40px
+        line-height: 40px
+        background-color: #FFFFFF
+      .item-close
+        margin-top: 10px

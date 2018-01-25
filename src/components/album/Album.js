@@ -197,7 +197,7 @@ class Album extends React.Component {
 				<div ref="albumContainer" className="album-container">
 					<div className="album-scroll" style={this.state.loading === true ? {display:"none"} : {}}>
 						<Scroll refresh={this.state.refreshScroll} onScroll={this.scroll}>
-							<div className="album-wrapper">
+							<div className="album-wrapper skin-detail-wrapper">
 								<div className="song-count">专辑 共{songs.length}首</div>
 								<div className="song-list">
 									{songs}

@@ -61,7 +61,7 @@ class Ranking extends React.Component {
 					{
 						this.state.rankingList.map(ranking => {
 							return (
-								<div className="ranking-wrapper" key={ranking.id}
+								<div className="ranking-wrapper skin-ranking-wrapper" key={ranking.id}
 									onClick={this.toDetail(`${match.url + '/' + ranking.id}`)}>
 									<div className="left">
 										<LazyLoad height={100}>
@@ -79,7 +79,7 @@ class Ranking extends React.Component {
 														<span className="index">{index + 1}</span>
 														<span>{song.name}</span>
 														 &nbsp;-&nbsp;
-														<span className="song">{song.singer}</span>
+														<span className="singer">{song.singer}</span>
 													</div>
 												);
 											})
