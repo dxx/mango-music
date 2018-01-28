@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect, NavLink} from "react-r
 import Recommend from "./recommend/Recommend"
 import Ranking from "./ranking/Ranking"
 import SingerList from "./singer/SingerList"
-import Search from "./search/Search"
+import Search from "../containers/Search"
 import MusicPlayer from "./play/MusicPlayer"
 
 import logo from "../assets/imgs/logo.png"

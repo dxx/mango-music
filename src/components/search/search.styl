@@ -1,0 +1,127 @@
+.music-search
+  height: 100%
+  .search-box-wrapper
+    position: relative
+    padding: 20px
+  .search-box
+    padding: 10px
+    border-radius: 3px
+    line-height: 0
+    background-color: #333333
+    .search-input
+      width: 80%
+      margin-left: 10px
+      background: none
+      border:none
+      outline: none
+      vertical-align: top
+      color: #DDDDDD
+  .cancel-button
+    position: absolute
+    top: 50%
+    right: 30px
+    margin-top: -8px
+    height: 16px
+    line-height: 1
+    font-size: 14px
+    display: none
+  .search-hot
+    position: absolute
+    left: 20px
+    right: 20px
+    padding-top: 10px
+    display: none
+    .title
+      font-size: 14px
+      color: #FFD700
+    .hot-list
+      .hot-item
+        float: left
+        padding: 5px 8px
+        margin-right: 10px
+        margin-top: 10px
+        border-radius: 10px
+        font-size: 14px
+        background-color: #333333
+        color: #FFFFFF
+  .search-result
+    position: absolute
+    left: 12px
+    right: 20px
+    top: 76px
+    bottom: 0
+    .album-wrapper
+      padding: 10px 0 0 6px
+      .left
+        display: inline-block
+        width: 40px
+        height: 40px
+        img
+          width: 100%
+          height: @width
+      .right
+        display: inline-block
+        margin-left: 10px
+        vertical-align: top
+        max-width: 200px
+        .song, .singer
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+        .song
+          margin-top: 5px
+          padding: 1px 0
+          font-size: 14px
+          color: #FFFFFF
+        .singer
+          margin-top: 5px
+          font-size: 12px
+    .singer-wrapper
+      padding: 10px 0 0 6px
+      .left
+        display: inline-block
+        width: 40px
+        height: 40px
+        border-radius: 50%
+        img
+          width: 100%
+          height: @width
+          border-radius: 50%
+      .right
+        display: inline-block
+        margin-left: 10px
+        vertical-align: top
+        .singer
+          margin-top: 5px
+          font-size: 14px
+          color: #FFFFFF
+        .info
+          margin-top: 5px
+          font-size: 12px
+    .song-wrapper
+      margin: 10px 0
+      .left
+        display: inline-block
+        width: 40px
+        height: 40px
+        line-height: 40px
+        text-align: center
+        font-size: 22px
+      .right
+        display: inline-block
+        margin-left: 10px
+        vertical-align: top
+        max-width: 200px
+        .song, .singer
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+        .song
+          padding: 1px 0
+          font-size: 14px
+          color: #FFFFFF
+        .singer
+          margin-top: 5px
+          font-size: 12px
+      &:last-child
+        padding-bottom: 10px
