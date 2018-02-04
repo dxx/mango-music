@@ -15,12 +15,12 @@ class App extends React.Component {
   render() {
     return (
         <Router>
-          <div className="app">
-            <header className="app-header">
+          <div className="app skin-app">
+            <header className="app-header skin-app-header">
               <img src={logo} className="app-logo" alt="logo" />
               <h1 className="app-title">Mango Music</h1>
             </header>
-            <div className="music-tab">
+            <div className="music-tab skin-music-tab">
                 <div className="tab-item">
                     <NavLink to="/recommend" className="nav-link">
                         <span>推荐</span>

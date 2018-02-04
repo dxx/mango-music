@@ -79,7 +79,7 @@ class Ranking extends React.Component {
                                                             <span className="index">{index + 1}</span>
                                                             <span>{song.name}</span>
                                                             &nbsp;-&nbsp;
-                                                            <span className="song">{song.singer}</span>
+                                                            <span className="singer">{song.singer}</span>
                                                         </div>
                                                     );
                                                 })
