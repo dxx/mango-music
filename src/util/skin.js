@@ -65,6 +65,27 @@ skin.mangoYellow = {
     activeColor: "#FFA500"
 };
 
+skin.kuGouBlue = Object.assign({}, skin.mangoYellow, {
+    appHeaderBgColor: "#2CA2F9",
+    activeColor: "#2CA2F9",
+    searchTitleColor: "#2CA2F9",
+    miniRightColor: "#2CA2F9"
+});
+
+skin.netBaseRed = Object.assign({}, skin.mangoYellow, {
+    appHeaderBgColor: "#D43C33",
+    activeColor: "#D43C33",
+    searchTitleColor: "#D43C33",
+    miniRightColor: "#D43C33"
+});
+
+skin.qqGreen = Object.assign({}, skin.mangoYellow, {
+    appHeaderBgColor: "#31C27C",
+    activeColor: "#31C27C",
+    searchTitleColor: "#31C27C",
+    miniRightColor: "#31C27C"
+});
+
 let getSkinStyle = (skin) => {
     if (!skin) {
         return "";

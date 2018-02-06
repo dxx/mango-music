@@ -198,7 +198,7 @@ class RankingInfo extends React.Component {
                     <div ref="rankingContainer" className="ranking-container">
                         <div className="ranking-scroll" style={this.state.loading === true ? {display:"none"} : {}}>
                             <Scroll refresh={this.state.refreshScroll}  onScroll={this.scroll}>
-                                <div className="ranking-wrapper">
+                                <div className="ranking-wrapper skin-detail-wrapper">
                                     <div className="ranking-count">排行榜 共{songs.length}首</div>
                                     <div className="song-list">
                                         {songs}

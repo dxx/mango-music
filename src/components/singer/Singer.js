@@ -198,7 +198,7 @@ class Singer extends React.Component {
                     <div ref="albumContainer" className="singer-container">
                         <div className="singer-scroll" style={this.state.loading === true ? {display:"none"} : {}}>
                             <Scroll refresh={this.state.refreshScroll} onScroll={this.scroll}>
-                                <div className="singer-wrapper">
+                                <div className="singer-wrapper skin-detail-wrapper">
                                     <div className="song-count">歌曲 共{songs.length}首</div>
                                     <div className="song-list">
                                         {songs}

@@ -12,11 +12,19 @@ import "../assets/stylus/font.styl"
 import './App.styl'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        menuShow: false
+    };
+  }
   render() {
     return (
         <Router>
           <div className="app skin-app">
             <header className="app-header skin-app-header">
+              <i className="icon-et-more app-more" onClick={() => {this.setState({menuShow: true});}}></i>
               <img src={logo} className="app-logo" alt="logo" />
               <h1 className="app-title">Mango Music</h1>
             </header>

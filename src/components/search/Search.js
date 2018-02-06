@@ -193,9 +193,9 @@ class Search extends React.Component {
         let album = this.state.album;
         let singer = this.state.singer;
         return (
-            <div className="music-search">
-                <div className="search-box-wrapper">
-                    <div className="search-box">
+            <div className="music-search skin-search">
+                <div className="search-box-wrapper skin-search-box-wrapper">
+                    <div className="search-box skin-search-box">
                         <i className="icon-search"></i>
                         <input type="text" className="search-input" placeholder="搜索歌曲、歌手、专辑"
                                value={this.state.w}
