@@ -5,6 +5,7 @@ import Ranking from "./ranking/Ranking"
 import SingerList from "./singer/SingerList"
 import Search from "../containers/Search"
 import MusicPlayer from "./play/MusicPlayer"
+import MusicMenu from "./setting/Menu"
 
 import logo from "../assets/imgs/logo.png"
 import '../assets/stylus/reset.styl'
@@ -65,6 +66,8 @@ class App extends React.Component {
                  </Switch>
             </div>
             <MusicPlayer/>
+            <MusicMenu show={this.state.menuShow}
+                       closeMenu={() => {this.setState({menuShow: false});}} />
           </div>
         </Router>
     );
