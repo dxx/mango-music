@@ -1,5 +1,6 @@
 import React from "react"
 import {CSSTransition} from "react-transition-group"
+import Skin from "../../containers/Skin"
 
 import "./menu.styl"
 
@@ -7,6 +8,18 @@ class Menu extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            skinShow: false
+        };
+    }
+    showSetting = (status) => {
+        this.close();
+        // menu关闭后打开设置
+        setTimeout(() => {
+            this.setState({
+                skinShow: status
+            });
+        }, 300);
     }
     close = () => {
         this.props.closeMenu();
@@ -23,7 +36,7 @@ class Menu extends React.Component {
                                }}>
                     <div className="bottom-container" onClick={this.close}  ref="bottom">
                         <div className="bottom-wrapper">
-                            <div className="item">
+                            <div className="item" onClick={() => {this.showSetting(true);}}>
                                 皮肤中心
                             </div>
                             <div className="item-close" onClick={this.close}>
@@ -32,6 +45,7 @@ class Menu extends React.Component {
                         </div>
                     </div>
                 </CSSTransition>
+                <Skin show={this.state.skinShow} close={() => {this.showSetting(false);}} />
             </div>
         );
     }

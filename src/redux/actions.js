@@ -5,6 +5,10 @@ import * as ActionTypes from "./actionTypes"
 
 //Action创建函数，用来创建action对象。使用action创建函数更容易被移植和测试
 
+export function setSkin(skin) {
+    return {type:ActionTypes.SET_SKIN, skin};
+}
+
 export function showPlayer(showStatus) {
     return {type:ActionTypes.SHOW_PLAYER, showStatus};
 }

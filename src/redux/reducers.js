@@ -8,12 +8,24 @@ import localStorage from "../util/storage"
 
 //需要存储的初始状态数据
 const initialState = {
+    skin: localStorage.getSkin(),  //皮肤
     showStatus: false,  //显示状态
     song: localStorage.getCurrentSong(),  //当前歌曲
     songs: localStorage.getSongs()  //歌曲列表
 };
 
 //拆分Reducer
+
+//设置皮肤
+function skin(skin = initialState.skin, action) {
+    switch (action.type) {
+        case ActionTypes.SET_SKIN:
+            localStorage.setSkin(action.skin);
+            return action.skin;
+        default:
+            return skin;
+    }
+}
 
 //显示或隐藏播放状态
 function showStatus(showStatus = initialState.showStatus, action) {
@@ -54,6 +66,7 @@ function songs(songs = initialState.songs, action) {
 
 //合并Reducer
 const reducer = combineReducers({
+    skin,
     showStatus,
     song,
     songs
