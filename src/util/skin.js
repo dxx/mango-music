@@ -209,4 +209,4 @@ let setSkinStyle = (skin) => {
 // 设置皮肤
 setSkinStyle(skin[localStorage.getSkin()]);
 
-export {skin, setSkinStyle}
+export { skin, setSkinStyle }
