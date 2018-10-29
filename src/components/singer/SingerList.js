@@ -68,7 +68,9 @@ class SingerList extends React.Component {
       typeKey: "all_all",
       indexKey: "all",
       singers: [],
-      refreshScroll: false
+      refreshScroll: false,
+      refreshTagScroll: false,
+      refreshIndexScroll: false
     }
   }
   componentDidMount() {
@@ -93,6 +95,11 @@ class SingerList extends React.Component {
       indexTotalWidth += a.offsetWidth;
     });
     indexDOM.style.width = `${indexTotalWidth}px`;
+
+    this.setState({
+      refreshTagScroll: true,
+      refreshIndexScroll: true
+    });
   }
   getSingers() {
     getSingerList(1, `${this.state.typeKey + '_' + this.state.indexKey}`).then((res) => {
@@ -176,12 +183,12 @@ class SingerList extends React.Component {
     return (
       <div className="music-singers skin-music-singers">
         <div className="nav">
-          <Scroll direction="horizontal">
+          <Scroll refresh={this.state.refreshTagScroll} direction="horizontal">
             <div className="tag" ref="tag">
               {tags}
             </div>
           </Scroll>
-          <Scroll direction="horizontal">
+          <Scroll refresh={this.state.refreshIndexScroll} direction="horizontal">
             <div className="index" ref="index">
               {indexs}
             </div>
