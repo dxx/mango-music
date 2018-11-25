@@ -168,6 +168,10 @@ class Album extends React.Component {
   }
   render() {
     let album = this.state.album;
+    let imgStyle = {};
+    if (album.img) {
+      imgStyle.backgroundImage = `url(${album.img})`
+    }
     let songs = this.state.songs.map((song) => {
       return (
         <div className="song" key={song.id} onClick={this.selectSong(song)}>
@@ -181,10 +185,10 @@ class Album extends React.Component {
         <div className="music-album">
           <Header title={album.name} ref="header"></Header>
           <div style={{ position: "relative" }}>
-            <div ref="albumBg" className="album-img" style={{ backgroundImage: `url(${album.img})` }}>
+            <div ref="albumBg" className="album-img" style={imgStyle}>
               <div className="filter"></div>
             </div>
-            <div ref="albumFixedBg" className="album-img fixed" style={{ backgroundImage: `url(${album.img})` }}>
+            <div ref="albumFixedBg" className="album-img fixed" style={imgStyle}>
               <div className="filter"></div>
             </div>
             <div className="play-wrapper" ref="playButtonWrapper">

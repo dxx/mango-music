@@ -32,7 +32,9 @@ class RankingInfo extends React.Component {
     let rankingBgDOM = ReactDOM.findDOMNode(this.refs.rankingBg);
     let rankingContainerDOM = ReactDOM.findDOMNode(this.refs.rankingContainer);
     rankingContainerDOM.style.top = rankingBgDOM.offsetHeight + "px";
-
+    this.initMusicIco();
+  }
+  getRankingInfo() {
     getRankingInfo(this.props.match.params.id).then((res) => {
       //console.log("获取排行榜详情：");
       if (res) {
@@ -60,7 +62,6 @@ class RankingInfo extends React.Component {
         }
       }
     });
-    this.initMusicIco();
   }
   getSongUrl(song, mId) {
     getSongVKey(mId).then((res) => {
@@ -168,6 +169,10 @@ class RankingInfo extends React.Component {
   }
   render() {
     let ranking = this.state.ranking;
+    let imgStyle = {};
+    if (ranking.img) {
+      imgStyle.backgroundImage = `url(${ranking.img})`
+    }
     let songs = this.state.songs.map((song, index) => {
       return (
         <div className="song" key={song.id} onClick={this.selectSong(song)}>
@@ -178,14 +183,18 @@ class RankingInfo extends React.Component {
       );
     });
     return (
-      <CSSTransition in={this.state.show} timeout={300} classNames="translate">
+      <CSSTransition in={this.state.show} timeout={300} classNames="translate"
+        onEntered={ () => {
+          // 进入动画结束后获取数据再渲染，避免大数量渲染造成动画卡顿
+          this.getRankingInfo();
+        }}>
         <div className="ranking-info">
           <Header title={ranking.title}></Header>
           <div style={{ position: "relative" }}>
-            <div ref="rankingBg" className="ranking-img" style={{ backgroundImage: `url(${ranking.img})` }}>
+            <div ref="rankingBg" className="ranking-img" style={imgStyle}>
               <div className="filter"></div>
             </div>
-            <div ref="rankingFixedBg" className="ranking-img fixed" style={{ backgroundImage: `url(${ranking.img})` }}>
+            <div ref="rankingFixedBg" className="ranking-img fixed" style={imgStyle}>
               <div className="filter"></div>
             </div>
             <div className="play-wrapper" ref="playButtonWrapper">

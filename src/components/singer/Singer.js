@@ -32,7 +32,9 @@ class Singer extends React.Component {
     let albumBgDOM = ReactDOM.findDOMNode(this.refs.albumBg);
     let albumContainerDOM = ReactDOM.findDOMNode(this.refs.albumContainer);
     albumContainerDOM.style.top = albumBgDOM.offsetHeight + "px";
-
+    this.initMusicIco();
+  }
+  getSingerInfo() {
     getSingerInfo(this.props.match.params.id).then((res) => {
       //console.log("获取歌手详情：");
       if (res) {
@@ -61,7 +63,6 @@ class Singer extends React.Component {
         }
       }
     });
-    this.initMusicIco();
   }
   getSongUrl(song, mId) {
     getSongVKey(mId).then((res) => {
@@ -169,6 +170,10 @@ class Singer extends React.Component {
   }
   render() {
     let singer = this.state.singer;
+    let imgStyle = {};
+    if (singer.img) {
+      imgStyle.backgroundImage = `url(${singer.img})`
+    }
     let songs = this.state.songs.map((song) => {
       return (
         <div className="song" key={song.id} onClick={this.selectSong(song)}>
@@ -178,14 +183,17 @@ class Singer extends React.Component {
       );
     });
     return (
-      <CSSTransition in={this.state.show} timeout={300} classNames="translate">
+      <CSSTransition in={this.state.show} timeout={300} classNames="translate"
+        onEntered={ () => {
+          this.getSingerInfo();
+        }}>
         <div className="music-singer">
           <Header title={singer.name} ref="header"></Header>
           <div style={{ position: "relative" }}>
-            <div ref="albumBg" className="singer-img" style={{ backgroundImage: `url(${singer.img})` }}>
+            <div ref="albumBg" className="singer-img" style={imgStyle}>
               <div className="filter"></div>
             </div>
-            <div ref="albumFixedBg" className="singer-img fixed" style={{ backgroundImage: `url(${singer.img})` }}>
+            <div ref="albumFixedBg" className="singer-img fixed" style={imgStyle}>
               <div className="filter"></div>
             </div>
             <div className="play-wrapper" ref="playButtonWrapper">
