@@ -1,5 +1,4 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import { CSSTransition } from "react-transition-group"
 import Progress from "./Progress"
 import MiniPlayer from "./MiniPlayer"
@@ -35,13 +34,13 @@ class Player extends React.Component {
       playStatus: false,
       currentPlayMode: 0
     }
+
+    this.audioDOM = null;
+    this.singerImgDOM = null;
+    this.playerDOM = null;
+    this.playerBgDOM = null;
   }
   componentDidMount() {
-    this.audioDOM = ReactDOM.findDOMNode(this.refs.audio);
-    this.singerImgDOM = ReactDOM.findDOMNode(this.refs.singerImg);
-    this.playerDOM = ReactDOM.findDOMNode(this.refs.player);
-    this.playerBgDOM = ReactDOM.findDOMNode(this.refs.playerBg);
-
     this.audioDOM.addEventListener("canplay", () => {
       this.audioDOM.play();
       this.startImgRotate();
@@ -228,8 +227,21 @@ class Player extends React.Component {
       this.setState({ currentPlayMode: this.state.currentPlayMode + 1 });
     }
   }
+  /**
+   * 点击
+   */
+  handleClick = (progress) => {
+    if (this.state.playStatus !== true) {
+      this.playOrPause();
+    }
+    let currentTime = this.currentSong.duration * progress;
+    this.playProgress = progress;
+    this.currentTime = currentTime;
+    this.audioDOM.currentTime = currentTime;
+    this.audioDOM.play();
+  }
 	/**
-	 * 开始拖拽
+	 * 拖拽
 	 */
   handleDrag = (progress) => {
     if (this.audioDOM.duration > 0) {
@@ -297,7 +309,7 @@ class Player extends React.Component {
           onExited={() => {
             this.playerDOM.style.display = "none";
           }}>
-          <div className="player" ref="player">
+          <div className="player" ref={(el) => { this.playerDOM = el; }}>
             <div className="header">
               <span className="header-back" onClick={this.hidePlayer}>
                 <i className="icon-back"></i>
@@ -312,7 +324,7 @@ class Player extends React.Component {
               </div>
             </div>
             <div className="singer-middle">
-              <div className="singer-img" ref="singerImg">
+              <div className="singer-img" ref={(el) => { this.singerImgDOM = el; }}>
                 <img src={playBg} alt={song.name} onLoad={
                   (e) => {
                     /*图片加载完成后设置背景，防止图片加载过慢导致没有背景*/
@@ -327,6 +339,7 @@ class Player extends React.Component {
                   <span className="current-time">{getTime(this.state.currentTime)}</span>
                   <div className="play-progress">
                     <Progress progress={this.state.playProgress}
+                      onClick={this.handleClick}
                       onDrag={this.handleDrag}
                       onDragEnd={this.handleDragEnd} />
                   </div>
@@ -351,8 +364,8 @@ class Player extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="player-bg" ref="playerBg"></div>
-            <audio ref="audio"></audio>
+            <div className="player-bg" ref={(el) => { this.playerBgDOM = el; }}></div>
+            <audio ref={(el) => { this.audioDOM = el; }}></audio>
           </div>
         </CSSTransition>
         <MiniPlayer song={song} progress={this.state.playProgress}

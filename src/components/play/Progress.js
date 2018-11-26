@@ -61,6 +61,18 @@ class Progress extends React.Component {
       });
     }
   }
+  handleClick = (e) => {
+    if (this.disableClick !== true) {
+      let left = this.progressBarDOM.getBoundingClientRect().left;
+      let clickedLeft = e.clientX - left;
+      let progress = clickedLeft / this.progressBarWidth;
+      this.progressDOM.style.width = `${progress * 100}%`;
+      this.progressBtnDOM.style.left = `${clickedLeft}px`;
+      if (this.props.onClick) {
+        this.props.onClick(progress);
+      }
+    }
+  }
   render() {
     //进度值：范围 0-1
     let { progress, disableButton } = this.props;
@@ -73,7 +85,7 @@ class Progress extends React.Component {
     }
 
     return (
-      <div className="progress-bar" ref={(el) => { this.progressBarDOM = el; }}>
+      <div className="progress-bar" ref={(el) => { this.progressBarDOM = el; }} onClick={ this.handleClick }>
         <div className="progress-load"></div>
         <div className="progress" style={{ width: `${progress * 100}%` }} ref={(el) => { this.progressDOM = el; }}></div>
         {
@@ -88,10 +100,13 @@ class Progress extends React.Component {
 Progress.propTypes = {
   //进度
   progress: PropTypes.number.isRequired,
+  //是否禁用点击
+  disableClick: PropTypes.bool,
   //是否禁用按钮
   disableButton: PropTypes.bool,
   //是否禁用拖拽
   disableDrag: PropTypes.bool,
+  onClick: PropTypes.func,
   onDragStart: PropTypes.func,
   onDrag: PropTypes.func,
   onDragEnd: PropTypes.func
