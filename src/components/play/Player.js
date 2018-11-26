@@ -52,7 +52,7 @@ class Player extends React.Component {
     }, false);
 
     this.audioDOM.addEventListener("timeupdate", () => {
-      if (this.state.playStatus === true) {
+      if (this.state.playStatus === true && this.audioDOM) {
         this.setState({
           playProgress: this.audioDOM.currentTime / this.audioDOM.duration,
           currentTime: this.audioDOM.currentTime
