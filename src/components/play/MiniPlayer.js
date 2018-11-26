@@ -53,7 +53,7 @@ class MiniPlayer extends React.Component {
         </div>
         <div className="player-center">
           <div className="progress-wrapper">
-            <Progress disableButton={true} progress={this.props.progress} />
+            <Progress disableButton={true} disableClick={true} progress={this.props.progress} />
           </div>
           <span className="song">
             {song.name}

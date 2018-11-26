@@ -62,14 +62,15 @@ class Progress extends React.Component {
     }
   }
   handleClick = (e) => {
-    if (this.disableClick !== true) {
+    const { disableClick, onClick } = this.props;
+    if (disableClick !== true) {
       let left = this.progressBarDOM.getBoundingClientRect().left;
       let clickedLeft = e.clientX - left;
       let progress = clickedLeft / this.progressBarWidth;
       this.progressDOM.style.width = `${progress * 100}%`;
       this.progressBtnDOM.style.left = `${clickedLeft}px`;
-      if (this.props.onClick) {
-        this.props.onClick(progress);
+      if (onClick) {
+        onClick(progress);
       }
     }
   }
