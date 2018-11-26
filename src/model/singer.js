@@ -15,10 +15,11 @@ export class Singer {
  */
 export function createSingerBySearch(data) {
   return new Singer(
-    data.singerid,
-    data.singermid,
-    data.singername,
-    `http://y.gtimg.cn/music/photo_new/T001R68x68M000${data.singermid}.jpg?max_age=2592000`
+    data.singerID,
+    data.singerMID,
+    data.singerName,
+    // `http://y.gtimg.cn/music/photo_new/T001R68x68M000${data.singerMID}.jpg?max_age=2592000`
+    data.singerPic
   );
 }
 

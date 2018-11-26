@@ -107,15 +107,17 @@ class Search extends React.Component {
             //0：表示歌曲
             case 0:
               break;
-            //2：表示歌手
-            case 2:
-              singer = SingerModel.createSingerBySearch(zhida);
-              singer.songnum = zhida.songnum;
-              singer.albumnum = zhida.albumnum;
+            //1：表示歌手
+            case 1:
+              let zhiDaSinger = zhida.zhida_singer;
+              singer = SingerModel.createSingerBySearch(zhiDaSinger);
+              singer.songNum = zhiDaSinger.songNum;
+              singer.albumNum = zhiDaSinger.albumNum;
               break;
-            //3: 表示专辑
-            case 3:
-              album = AlbumModel.createAlbumBySearch(zhida);
+            //2: 表示专辑
+            case 2:
+              let zhiDaAlbum = zhida.zhida_album;
+              album = AlbumModel.createAlbumBySearch(zhiDaAlbum);
               break;
             default:
               break;
@@ -247,7 +249,7 @@ class Search extends React.Component {
                 </div>
                 <div className="right">
                   <div className="singer">{singer.name}</div>
-                  <div className="info">单曲{singer.songnum} 专辑{singer.albumnum}</div>
+                  <div className="info">单曲{singer.songNum} 专辑{singer.albumNum}</div>
                 </div>
               </div>
               {/*歌曲列表*/}

@@ -11,7 +11,8 @@ const URL = {
   /*排行榜详情*/
   rankingInfo: "https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg",
   /*搜索*/
-  search: "https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp",
+  //search: "https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp",
+  search: "https://c.y.qq.com/soso/fcgi-bin/client_search_cp",
   /*热搜*/
   hotkey: "https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg",
   /*歌手列表*/
