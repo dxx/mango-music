@@ -1,10 +1,9 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import { CSSTransition } from "react-transition-group"
-import { getTransitionEndName } from "@/util/event"
 import Header from "@/common/header/Header"
 import Scroll from "@/common/scroll/Scroll"
 import Loading from "@/common/loading/Loading"
+import MusicalNote from "@/common/note/MusicalNote"
 import { getAlbumInfo } from "@/api/recommend"
 import { getSongVKey } from "@/api/song"
 import { CODE_SUCCESS } from "@/api/config"
@@ -58,7 +57,7 @@ class Album extends React.Component {
         }
       }
     });
-    this.initMusicIco();
+    //this.initMusicIco();
   }
   getSongUrl(song, mId) {
     getSongVKey(mId).then((res) => {
@@ -75,7 +74,7 @@ class Album extends React.Component {
 	/**
 	 * 初始化音符图标
 	 */
-  initMusicIco() {
+  /*initMusicIco() {
     this.musicIcos = [];
     this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco1));
     this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco2));
@@ -96,11 +95,11 @@ class Album extends React.Component {
         icon.style["transform"] = "translate3d(0, 0, 0)";
       }, false);
     });
-  }
+  }*/
 	/**
 	 * 开始音符下落动画
 	 */
-  startMusicIcoAnimation({ clientX, clientY }) {
+  /*startMusicIcoAnimation({ clientX, clientY }) {
     if (this.musicIcos.length > 0) {
       for (let i = 0; i < this.musicIcos.length; i++) {
         let item = this.musicIcos[i];
@@ -122,7 +121,7 @@ class Album extends React.Component {
         }
       }
     }
-  }
+  }*/
 	/**
 	 * 选择歌曲
 	 */
@@ -130,7 +129,11 @@ class Album extends React.Component {
     return (e) => {
       this.props.setSongs([song]);
       this.props.changeCurrentSong(song);
-      this.startMusicIcoAnimation(e.nativeEvent);
+      // this.startMusicIcoAnimation(e.nativeEvent);
+      this.musicalNote.startAnimation({
+        x: e.nativeEvent.clientX,
+        y: e.nativeEvent.clientY
+      });
     };
   }
 	/**
@@ -214,15 +217,18 @@ class Album extends React.Component {
             </div>
             <Loading title="正在加载..." show={this.state.loading} />
           </div>
-          <div className="music-ico" ref="musicIco1">
-            <div className="icon-fe-music"></div>
-          </div>
-          <div className="music-ico" ref="musicIco2">
-            <div className="icon-fe-music"></div>
-          </div>
-          <div className="music-ico" ref="musicIco3">
-            <div className="icon-fe-music"></div>
-          </div>
+          <MusicalNote ref={(el) => { this.musicalNote = el; }}/>
+          {/*
+            <div className="music-ico" ref="musicIco1">
+              <div className="icon-fe-music"></div>
+            </div>
+            <div className="music-ico" ref="musicIco2">
+              <div className="icon-fe-music"></div>
+            </div>
+            <div className="music-ico" ref="musicIco3">
+              <div className="icon-fe-music"></div>
+            </div>
+          */}
         </div>
       </CSSTransition>
     );
