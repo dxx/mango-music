@@ -1,5 +1,4 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import { Route } from "react-router-dom"
 import LazyLoad, { forceCheck } from "react-lazyload"
 import Scroll from "@/common/scroll/Scroll"
@@ -80,7 +79,7 @@ class SingerList extends React.Component {
     this.getSingers();
   }
   initNavScrollWidth() {
-    let tagDOM = ReactDOM.findDOMNode(this.refs.tag);
+    let tagDOM = this.tagDOM;
     let tagElems = tagDOM.querySelectorAll("a");
     let tagTotalWidth = 0;
     Array.from(tagElems).forEach(a => {
@@ -88,7 +87,7 @@ class SingerList extends React.Component {
     });
     tagDOM.style.width = `${tagTotalWidth}px`;
 
-    let indexDOM = ReactDOM.findDOMNode(this.refs.index);
+    let indexDOM = this.indexDOM;
     let indexElems = indexDOM.querySelectorAll("a");
     let indexTotalWidth = 0;
     Array.from(indexElems).forEach(a => {
@@ -184,12 +183,12 @@ class SingerList extends React.Component {
       <div className="music-singers skin-music-singers">
         <div className="nav">
           <Scroll refresh={this.state.refreshTagScroll} direction="horizontal">
-            <div className="tag" ref="tag">
+            <div className="tag" ref={ (el) => { this.tagDOM = el; }}>
               {tags}
             </div>
           </Scroll>
           <Scroll refresh={this.state.refreshIndexScroll} direction="horizontal">
-            <div className="index" ref="index">
+            <div className="index" ref={ (el) => { this.indexDOM = el; }}>
               {indexs}
             </div>
           </Scroll>

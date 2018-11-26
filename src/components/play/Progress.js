@@ -1,5 +1,4 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import PropTypes from "prop-types"
 
 import "./progress.styl"
@@ -8,13 +7,13 @@ class Progress extends React.Component {
   componentDidUpdate() {
     //组件更新后重新获取进度条总宽度
     if (!this.progressBarWidth) {
-      this.progressBarWidth = ReactDOM.findDOMNode(this.refs.progressBar).offsetWidth;
+      this.progressBarWidth = this.progressBarDOM.offsetWidth;
     }
   }
   componentDidMount() {
-    let progressBarDOM = ReactDOM.findDOMNode(this.refs.progressBar);
-    let progressDOM = ReactDOM.findDOMNode(this.refs.progress);
-    let progressBtnDOM = ReactDOM.findDOMNode(this.refs.progressBtn);
+    let progressBarDOM = this.progressBarDOM;
+    let progressDOM = this.progressDOM;
+    let progressBtnDOM = this.progressBtnDOM;
     this.progressBarWidth = progressBarDOM.offsetWidth;
 
 
@@ -74,12 +73,12 @@ class Progress extends React.Component {
     }
 
     return (
-      <div className="progress-bar" ref="progressBar">
+      <div className="progress-bar" ref={(el) => { this.progressBarDOM = el; }}>
         <div className="progress-load"></div>
-        <div className="progress" style={{ width: `${progress * 100}%` }} ref="progress"></div>
+        <div className="progress" style={{ width: `${progress * 100}%` }} ref={(el) => { this.progressDOM = el; }}></div>
         {
           disableButton === true ? "" :
-            <div className="progress-button" style={{ left: progressButtonOffsetLeft }} ref="progressBtn"></div>
+            <div className="progress-button" style={{ left: progressButtonOffsetLeft }} ref={(el) => { this.progressBtnDOM = el; }}></div>
         }
       </div>
     );

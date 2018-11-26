@@ -29,9 +29,7 @@ class RankingInfo extends React.Component {
     this.setState({
       show: true
     });
-    let rankingBgDOM = ReactDOM.findDOMNode(this.refs.rankingBg);
-    let rankingContainerDOM = ReactDOM.findDOMNode(this.refs.rankingContainer);
-    rankingContainerDOM.style.top = rankingBgDOM.offsetHeight + "px";
+    this.rankingContainerDOM.style.top = this.rankingBgDOM.offsetHeight + "px";
     this.initMusicIco();
   }
   getRankingInfo() {
@@ -151,9 +149,9 @@ class RankingInfo extends React.Component {
 	 * 监听scroll
 	 */
   scroll = ({ y }) => {
-    let rankingBgDOM = ReactDOM.findDOMNode(this.refs.rankingBg);
-    let rankingFixedBgDOM = ReactDOM.findDOMNode(this.refs.rankingFixedBg);
-    let playButtonWrapperDOM = ReactDOM.findDOMNode(this.refs.playButtonWrapper);
+    let rankingBgDOM = this.rankingBgDOM;
+    let rankingFixedBgDOM = this.rankingFixedBgDOM;
+    let playButtonWrapperDOM = this.playButtonWrapperDOM;
     if (y < 0) {
       if (Math.abs(y) + 55 > rankingBgDOM.offsetHeight) {
         rankingFixedBgDOM.style.display = "block";
@@ -191,20 +189,20 @@ class RankingInfo extends React.Component {
         <div className="ranking-info">
           <Header title={ranking.title}></Header>
           <div style={{ position: "relative" }}>
-            <div ref="rankingBg" className="ranking-img" style={imgStyle}>
+            <div ref={(el) => { this.rankingBgDOM = el; }} className="ranking-img" style={imgStyle}>
               <div className="filter"></div>
             </div>
-            <div ref="rankingFixedBg" className="ranking-img fixed" style={imgStyle}>
+            <div ref={(el) => { this.rankingFixedBgDOM = el; }} className="ranking-img fixed" style={imgStyle}>
               <div className="filter"></div>
             </div>
-            <div className="play-wrapper" ref="playButtonWrapper">
+            <div className="play-wrapper" ref={(el) => { this.playButtonWrapperDOM = el; }}>
               <div className="play-button" onClick={this.playAll}>
                 <i className="icon-play"></i>
                 <span>播放全部</span>
               </div>
             </div>
           </div>
-          <div ref="rankingContainer" className="ranking-container">
+          <div ref={(el) => { this.rankingContainerDOM = el; }} className="ranking-container">
             <div className="ranking-scroll" style={this.state.loading === true ? { display: "none" } : {}}>
               <Scroll refresh={this.state.refreshScroll} onScroll={this.scroll}>
                 <div className="ranking-wrapper skin-detail-wrapper">
@@ -214,8 +212,7 @@ class RankingInfo extends React.Component {
                   </div>
                   <div className="info" style={ranking.info ? {} : { display: "none" }}>
                     <h1 className="ranking-title">简介</h1>
-                    <div className="ranking-desc">
-                      {ranking.info}
+                    <div className="ranking-desc" dangerouslySetInnerHTML={{__html: ranking.info}}>
                     </div>
                   </div>
                 </div>

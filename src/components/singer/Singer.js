@@ -29,9 +29,7 @@ class Singer extends React.Component {
     this.setState({
       show: true
     });
-    let albumBgDOM = ReactDOM.findDOMNode(this.refs.albumBg);
-    let albumContainerDOM = ReactDOM.findDOMNode(this.refs.albumContainer);
-    albumContainerDOM.style.top = albumBgDOM.offsetHeight + "px";
+    this.singerContainerDOM.style.top = this.singerBgDOM.offsetHeight + "px";
     this.initMusicIco();
   }
   getSingerInfo() {
@@ -152,19 +150,19 @@ class Singer extends React.Component {
 	 * 监听scroll
 	 */
   scroll = ({ y }) => {
-    let albumBgDOM = ReactDOM.findDOMNode(this.refs.albumBg);
-    let albumFixedBgDOM = ReactDOM.findDOMNode(this.refs.albumFixedBg);
-    let playButtonWrapperDOM = ReactDOM.findDOMNode(this.refs.playButtonWrapper);
+    let singerBgDOM = this.singerBgDOM;
+    let singerFixedBgDOM = this.singerFixedBgDOM;
+    let playButtonWrapperDOM = this.playButtonWrapperDOM;
     if (y < 0) {
-      if (Math.abs(y) + 55 > albumBgDOM.offsetHeight) {
-        albumFixedBgDOM.style.display = "block";
+      if (Math.abs(y) + 55 > singerBgDOM.offsetHeight) {
+        singerFixedBgDOM.style.display = "block";
       } else {
-        albumFixedBgDOM.style.display = "none";
+        singerFixedBgDOM.style.display = "none";
       }
     } else {
       let transform = `scale(${1 + y * 0.004}, ${1 + y * 0.004})`;
-      albumBgDOM.style["webkitTransform"] = transform;
-      albumBgDOM.style["transform"] = transform;
+      singerBgDOM.style["webkitTransform"] = transform;
+      singerBgDOM.style["transform"] = transform;
       playButtonWrapperDOM.style.marginTop = `${y}px`;
     }
   }
@@ -188,22 +186,22 @@ class Singer extends React.Component {
           this.getSingerInfo();
         }}>
         <div className="music-singer">
-          <Header title={singer.name} ref="header"></Header>
+          <Header title={singer.name}></Header>
           <div style={{ position: "relative" }}>
-            <div ref="albumBg" className="singer-img" style={imgStyle}>
+            <div ref={(el) => { this.singerBgDOM = el; }} className="singer-img" style={imgStyle}>
               <div className="filter"></div>
             </div>
-            <div ref="albumFixedBg" className="singer-img fixed" style={imgStyle}>
+            <div ref={(el) => { this.singerFixedBgDOM = el; }} className="singer-img fixed" style={imgStyle}>
               <div className="filter"></div>
             </div>
-            <div className="play-wrapper" ref="playButtonWrapper">
+            <div className="play-wrapper" ref={(el) => { this.playButtonWrapperDOM = el; }}>
               <div className="play-button" onClick={this.playAll}>
                 <i className="icon-play"></i>
                 <span>播放全部</span>
               </div>
             </div>
           </div>
-          <div ref="albumContainer" className="singer-container">
+          <div ref={(el) => { this.singerContainerDOM = el; }} className="singer-container">
             <div className="singer-scroll" style={this.state.loading === true ? { display: "none" } : {}}>
               <Scroll refresh={this.state.refreshScroll} onScroll={this.scroll}>
                 <div className="singer-wrapper skin-detail-wrapper">

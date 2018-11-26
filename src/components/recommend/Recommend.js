@@ -96,7 +96,7 @@ class Recommend extends React.Component {
         <div className="album-wrapper skin-album-wrapper" key={album.mId}
           onClick={this.toAlbumDetail(`${match.url + '/' + album.mId}`)}>
           <div className="left">
-            <LazyLoad height={60}>
+            <LazyLoad height={60} placeholder={<img src={require("../../assets/imgs/music.png")} alt="music" />}>
               <img src={album.img} width="100%" height="100%" alt={album.name} />
             </LazyLoad>
           </div>

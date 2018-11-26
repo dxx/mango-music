@@ -57,7 +57,7 @@ class PlayerList extends React.Component {
 	 * 滚动到当前播放歌曲
 	 */
   scrollToCurrentItem() {
-    this.refs.scroll.bScroll.scrollToElement(
+    this.scroll.bScroll.scrollToElement(
       ReactDOM.findDOMNode(this.refs[`item${this.props.currentIndex}`])
     );
   }
@@ -70,7 +70,7 @@ class PlayerList extends React.Component {
             this.setState({ showList: true });
           }}
           onEntered={() => {
-            this.refs.scroll.refresh();
+            this.scroll.refresh();
             this.scrollToCurrentItem();
           }}
           onExited={() => {
@@ -86,7 +86,7 @@ class PlayerList extends React.Component {
                 <span className="close" onClick={this.showOrHidePlayList}>关闭</span>
               </div>
               <div className="play-list">
-                <Scroll ref="scroll">
+                <Scroll ref={(el) => { this.scroll = el; }}>
                   <div>
                     {
                       playList.map((song, index) => {

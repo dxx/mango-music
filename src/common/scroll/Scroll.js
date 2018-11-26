@@ -1,5 +1,4 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import PropTypes from "prop-types"
 import BScroll from "better-scroll"
 import "./scroll.styl"
@@ -12,7 +11,6 @@ class Scroll extends React.Component {
     }
   }
   componentDidMount() {
-    this.scrollView = ReactDOM.findDOMNode(this.refs.scrollView);
     if (!this.bScroll) {
       this.bScroll = new BScroll(this.scrollView, {
         scrollX: this.props.direction === "horizontal",
@@ -41,7 +39,7 @@ class Scroll extends React.Component {
   }
   render() {
     return (
-      <div className="scroll-view" ref="scrollView">
+      <div className="scroll-view" ref={ (el) => { this.scrollView = el; }}>
         {/*获取子组件*/}
         {this.props.children}
       </div>
