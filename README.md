@@ -18,14 +18,14 @@ Online preview address: https://code-mcx.github.io/mango-music.
 
 ## Technology Stack
 
-React + React-Router + Redux + ES6 + Webpack
+React + React-Router + Redux + ES6 + Webpack.
 
 
 ## Available Scripts
 
 ### `npm install`
 
-First, run the `npm install` to install dependence
+First, run the `npm install` to install dependence.
 
 ### `npm start`
 
