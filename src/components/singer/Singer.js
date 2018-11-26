@@ -172,7 +172,7 @@ class Singer extends React.Component {
     let singer = this.state.singer;
     let imgStyle = {};
     if (singer.img) {
-      imgStyle.backgroundImage = `url(${singer.img})`
+      imgStyle.backgroundImage = `url(${singer.img})`;
     }
     let songs = this.state.songs.map((song) => {
       return (

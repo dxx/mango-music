@@ -170,7 +170,7 @@ class Album extends React.Component {
     let album = this.state.album;
     let imgStyle = {};
     if (album.img) {
-      imgStyle.backgroundImage = `url(${album.img})`
+      imgStyle.backgroundImage = `url(${album.img})`;
     }
     let songs = this.state.songs.map((song) => {
       return (

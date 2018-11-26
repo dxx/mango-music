@@ -171,7 +171,7 @@ class RankingInfo extends React.Component {
     let ranking = this.state.ranking;
     let imgStyle = {};
     if (ranking.img) {
-      imgStyle.backgroundImage = `url(${ranking.img})`
+      imgStyle.backgroundImage = `url(${ranking.img})`;
     }
     let songs = this.state.songs.map((song, index) => {
       return (
