@@ -20,7 +20,7 @@ class MusicalNote extends React.PureComponent {
    */
   initMusicIco() {
     this.musicIcos.forEach((item) => {
-      //初始化状态
+      // 初始化状态
       item.run = false;
       let transitionEndName = getTransitionEndName(item);
       item.addEventListener(transitionEndName, function () {
@@ -36,13 +36,13 @@ class MusicalNote extends React.PureComponent {
     });
   }
   /**
-	 * 开始音符下落动画
-	 */
+   * 开始音符下落动画
+   */
   startAnimation({ x, y }) {
     if (this.musicIcos.length > 0) {
       for (let i = 0; i < this.musicIcos.length; i++) {
         let item = this.musicIcos[i];
-        //选择一个未在动画中的元素开始动画
+        // 选择一个未在动画中的元素开始动画
         if (item.run === false) {
           item.style.left = x + "px";
           item.style.top = y + "px";

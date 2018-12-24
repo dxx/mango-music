@@ -73,7 +73,7 @@ class SingerList extends React.Component {
     }
   }
   componentDidMount() {
-    //初始化导航元素总宽度
+    // 初始化导航元素总宽度
     this.initNavScrollWidth();
 
     this.getSingers();
@@ -102,9 +102,9 @@ class SingerList extends React.Component {
   }
   getSingers() {
     getSingerList(1, `${this.state.typeKey + '_' + this.state.indexKey}`).then((res) => {
-      //console.log("获取歌手列表：");
+      // console.log("获取歌手列表：");
       if (res) {
-        //console.log(res);
+        // console.log(res);
         if (res.code === CODE_SUCCESS) {
           let singers = [];
           res.data.list.forEach(data => {
@@ -116,7 +116,7 @@ class SingerList extends React.Component {
             loading: false,
             singers
           }, () => {
-            //刷新scroll
+            // 刷新scroll
             this.setState({ refreshScroll: true });
           });
         }

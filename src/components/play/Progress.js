@@ -5,7 +5,7 @@ import "./progress.styl"
 
 class Progress extends React.Component {
   componentDidUpdate() {
-    //组件更新后重新获取进度条总宽度
+    // 组件更新后重新获取进度条总宽度
     if (!this.progressBarWidth) {
       this.progressBarWidth = this.progressBarDOM.offsetWidth;
     }
@@ -19,9 +19,9 @@ class Progress extends React.Component {
 
     let { disableButton, disableDrag, onDragStart, onDrag, onDragEnd } = this.props;
     if (disableButton !== true && disableDrag !== true) {
-      //触摸开始位置
+      // 触摸开始位置
       let downX = 0;
-      //按钮left值
+      // 按钮left值
       let buttonLeft = 0;
 
       progressBtnDOM.addEventListener("touchstart", (e) => {
@@ -45,9 +45,9 @@ class Progress extends React.Component {
         } else if (btnLeft < 0) {
           btnLeft = 0;
         }
-        //设置按钮left值
+        // 设置按钮left值
         touch.target.style.left = btnLeft + "px";
-        //设置进度width值
+        // 设置进度width值
         progressDOM.style.width = btnLeft / this.progressBarWidth * 100 + "%";
 
         if (onDrag) {
@@ -75,11 +75,11 @@ class Progress extends React.Component {
     }
   }
   render() {
-    //进度值：范围 0-1
+    // 进度值：范围 0-1
     let { progress, disableButton } = this.props;
     if (!progress) progress = 0;
 
-    //按钮left值
+    // 按钮left值
     let progressButtonOffsetLeft = 0;
     if (this.progressBarWidth) {
       progressButtonOffsetLeft = progress * this.progressBarWidth;
@@ -99,13 +99,13 @@ class Progress extends React.Component {
 }
 
 Progress.propTypes = {
-  //进度
+  // 进度
   progress: PropTypes.number.isRequired,
-  //是否禁用点击
+  // 是否禁用点击
   disableClick: PropTypes.bool,
-  //是否禁用按钮
+  // 是否禁用按钮
   disableButton: PropTypes.bool,
-  //是否禁用拖拽
+  // 是否禁用拖拽
   disableDrag: PropTypes.bool,
   onClick: PropTypes.func,
   onDragStart: PropTypes.func,

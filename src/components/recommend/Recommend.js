@@ -25,20 +25,20 @@ class Recommend extends React.Component {
     };
   }
   componentDidMount() {
-    //如果当前路由没有被激活隐藏加载组件
+    // 如果当前路由没有被激活隐藏加载组件
     if (!this.props.match.isExact) {
       this.setState({ loading: false });
     }
     getCarousel().then((res) => {
-      //console.log("获取轮播：");
+      // console.log("获取轮播：");
       if (res) {
-        //console.log(res);
+        // console.log(res);
         if (res.code === CODE_SUCCESS) {
           this.setState({
             sliderList: res.data.slider
           }, () => {
             if (!this.sliderSwiper) {
-              //初始化轮播图
+              // 初始化轮播图
               this.sliderSwiper = new Swiper(".slider-container", {
                 loop: true,
                 autoplay: 3000,
@@ -52,11 +52,11 @@ class Recommend extends React.Component {
     });
 
     getNewAlbum().then((res) => {
-      //console.log("获取最新专辑：");
+      // console.log("获取最新专辑：");
       if (res) {
-        //console.log(res);
+        // console.log(res);
         if (res.code === CODE_SUCCESS) {
-          //根据发布时间降序排列
+          // 根据发布时间降序排列
           let albumList = res.albumlib.data.list;
           albumList.sort((a, b) => {
             return new Date(b.public_time).getTime() - new Date(a.public_time).getTime();
@@ -65,7 +65,7 @@ class Recommend extends React.Component {
             loading: false,
             newAlbums: albumList
           }, () => {
-            //刷新scroll
+            // 刷新scroll
             this.setState({ refreshScroll: true });
           });
         }
@@ -74,13 +74,13 @@ class Recommend extends React.Component {
 
   }
   toLink(linkUrl) {
-    /*使用闭包把参数变为局部变量使用*/
+    /* 使用闭包把参数变为局部变量使用 */
     return () => {
       window.location.href = linkUrl;
     };
   }
   toAlbumDetail(url) {
-    /*scroll组件会派发一个点击事件，不能使用链接跳转*/
+    /* scroll组件会派发一个点击事件，不能使用链接跳转 */
     return () => {
       this.props.history.push({
         pathname: url
@@ -90,7 +90,7 @@ class Recommend extends React.Component {
   render() {
     let { match } = this.props;
     let albums = this.state.newAlbums.map(item => {
-      //通过函数创建专辑对象
+      // 通过函数创建专辑对象
       let album = AlbumModel.createAlbumByList(item);
       return (
         <div className="album-wrapper skin-album-wrapper" key={album.mId}
@@ -118,7 +118,7 @@ class Recommend extends React.Component {
       <div className="music-recommend">
         <Scroll refresh={this.state.refreshScroll}
           onScroll={(e) => {
-            /*检查懒加载组件是否出现在视图中，如果出现就加载组件*/
+            /* 检查懒加载组件是否出现在视图中，如果出现就加载组件 */
             forceCheck();
           }}>
           <div>

@@ -19,7 +19,7 @@ class PlayerList extends React.Component {
     };
   }
   componentDidUpdate() {
-    //重置当前歌曲位置
+    // 重置当前歌曲位置
     if (this.changeIndex.shouldChange === true) {
       this.props.changeCurrentIndex(this.changeIndex.index);
       this.changeIndex.shouldChange = false;
@@ -28,9 +28,9 @@ class PlayerList extends React.Component {
   showOrHidePlayList = () => {
     this.props.showList(false);
   }
-	/**
-	 * 播放当前歌曲
-	 */
+  /**
+   * 播放当前歌曲
+   */
   playSong(song, index) {
     return () => {
       this.props.changeCurrentSong(song);
@@ -39,23 +39,23 @@ class PlayerList extends React.Component {
       this.showOrHidePlayList();
     };
   }
-	/**
-	 * 移除歌曲
-	 */
+  /**
+   * 移除歌曲
+   */
   removeSong(id, index) {
     return () => {
       if (this.props.currentSong.id !== id) {
         this.props.removeSong(id);
         if (index < this.props.currentIndex) {
-          //调用父组件修改当前歌曲位置
+          // 调用父组件修改当前歌曲位置
           this.props.changeCurrentIndex(this.props.currentIndex - 1);
         }
       }
     };
   }
-	/**
-	 * 滚动到当前播放歌曲
-	 */
+  /**
+   * 滚动到当前播放歌曲
+   */
   scrollToCurrentItem() {
     this.scroll.bScroll.scrollToElement(
       ReactDOM.findDOMNode(this.refs[`item${this.props.currentIndex}`])
@@ -79,7 +79,7 @@ class PlayerList extends React.Component {
           }}>
           <div className="play-list-bg" style={this.state.showList === true ? { display: "block" } : { display: "none" }}
             onClick={this.showOrHidePlayList}>
-            {/*播放列表*/}
+            {/* 播放列表 */}
             <div className="play-list-wrap" onClick={e => e.stopPropagation()}>
               <div className="play-list-head">
                 <span className="head-title">播放列表</span>
@@ -93,7 +93,7 @@ class PlayerList extends React.Component {
                         let isCurrent = false;
                         if (song.id === this.props.currentSong.id) {
                           isCurrent = true;
-                          //设置当前播放歌曲位置，并提示父组件更新当前歌曲位置
+                          // 设置当前播放歌曲位置，并提示父组件更新当前歌曲位置
                           this.changeIndex = {
                             shouldChange: true,
                             index

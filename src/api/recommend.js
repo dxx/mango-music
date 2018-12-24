@@ -15,23 +15,23 @@ export function getCarousel() {
 /*
 //旧接口
 export function getNewAlbum() {
-	const data = Object.assign({}, PARAM, {
-		g_tk: 1278911659,
-		hostUin: 0,
-		platform: "yqq",
-		needNewCode: 0,
-		cmd: "firstpage",
-		page: 0,
-		pagesize: 50,
-		sort: 1,
-		language: -1,
-		genre: 0,
-		year: 1,
-		pay: 0,
-		type: -1,
-		company: -1
-	});
-	return jsonp(URL.newalbum, data, OPTION);
+  const data = Object.assign({}, PARAM, {
+    g_tk: 1278911659,
+    hostUin: 0,
+    platform: "yqq",
+    needNewCode: 0,
+    cmd: "firstpage",
+    page: 0,
+    pagesize: 50,
+    sort: 1,
+    language: -1,
+    genre: 0,
+    year: 1,
+    pay: 0,
+    type: -1,
+    company: -1
+  });
+  return jsonp(URL.newalbum, data, OPTION);
 }*/
 
 export function getNewAlbum() {

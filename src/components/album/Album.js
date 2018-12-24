@@ -31,9 +31,9 @@ class Album extends React.Component {
     this.albumContainerDOM.style.top = this.albumBgDOM.offsetHeight + "px";
 
     getAlbumInfo(this.props.match.params.id).then((res) => {
-      //console.log("获取专辑详情：");
+      // console.log("获取专辑详情：");
       if (res) {
-        //console.log(res);
+        // console.log(res);
         if (res.code === CODE_SUCCESS) {
           let album = AlbumModel.createAlbumByDetail(res.data);
           album.desc = res.data.desc;
@@ -42,7 +42,7 @@ class Album extends React.Component {
           let songs = [];
           songList.forEach(item => {
             let song = SongModel.createSong(item);
-            //获取歌曲vkey
+            // 获取歌曲vkey
             this.getSongUrl(song, item.songmid);
             songs.push(song);
           });
@@ -51,13 +51,13 @@ class Album extends React.Component {
             album: album,
             songs: songs
           }, () => {
-            //刷新scroll
+            // 刷新scroll
             this.setState({ refreshScroll: true });
           });
         }
       }
     });
-    //this.initMusicIco();
+    // this.initMusicIco();
   }
   getSongUrl(song, mId) {
     getSongVKey(mId).then((res) => {
@@ -71,9 +71,9 @@ class Album extends React.Component {
       }
     });
   }
-	/**
-	 * 初始化音符图标
-	 */
+  /**
+   * 初始化音符图标
+   */
   /*initMusicIco() {
     this.musicIcos = [];
     this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco1));
@@ -81,7 +81,7 @@ class Album extends React.Component {
     this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco3));
 
     this.musicIcos.forEach((item) => {
-      //初始化状态
+      // 初始化状态
       item.run = false;
       let transitionEndName = getTransitionEndName(item);
       item.addEventListener(transitionEndName, function () {
@@ -96,14 +96,14 @@ class Album extends React.Component {
       }, false);
     });
   }*/
-	/**
-	 * 开始音符下落动画
-	 */
+  /**
+   * 开始音符下落动画
+   */
   /*startMusicIcoAnimation({ clientX, clientY }) {
     if (this.musicIcos.length > 0) {
       for (let i = 0; i < this.musicIcos.length; i++) {
         let item = this.musicIcos[i];
-        //选择一个未在动画中的元素开始动画
+        // 选择一个未在动画中的元素开始动画
         if (item.run === false) {
           item.style.top = clientY + "px";
           item.style.left = clientX + "px";
@@ -122,9 +122,9 @@ class Album extends React.Component {
       }
     }
   }*/
-	/**
-	 * 选择歌曲
-	 */
+  /**
+   * 选择歌曲
+   */
   selectSong(song) {
     return (e) => {
       this.props.setSongs([song]);
@@ -136,9 +136,9 @@ class Album extends React.Component {
       });
     };
   }
-	/**
-	 * 播放全部
-	 */
+  /**
+   * 播放全部
+   */
   playAll = () => {
     if (this.state.songs.length > 0) {
       //添加播放歌曲列表
@@ -147,9 +147,9 @@ class Album extends React.Component {
       this.props.showMusicPlayer(true);
     }
   }
-	/**
-	 * 监听scroll
-	 */
+  /**
+   * 监听scroll
+   */
   scroll = ({ y }) => {
     let albumBgDOM = this.albumBgDOM;
     let albumFixedBgDOM = this.albumFixedBgDOM;

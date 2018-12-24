@@ -7,7 +7,7 @@ class MiniPlayer extends React.Component {
   handlePlayOrPause = (e) => {
     e.stopPropagation();
     if (this.props.song.url) {
-      //调用父组件的播放或暂停方法
+      // 调用父组件的播放或暂停方法
       this.props.playOrPause();
     }
 
@@ -16,7 +16,7 @@ class MiniPlayer extends React.Component {
     e.stopPropagation();
 
     if (this.props.song.url) {
-      //调用父组件播放下一首方法
+      // 调用父组件播放下一首方法
       this.props.next();
     }
   }

@@ -22,9 +22,9 @@ class Ranking extends React.Component {
   }
   componentDidMount() {
     getRankingList().then((res) => {
-      //console.log("获取排行榜：");
+      // console.log("获取排行榜：");
       if (res) {
-        //console.log(res);
+        // console.log(res);
         if (res.code === CODE_SUCCESS) {
           let topList = [];
           res.data.topList.forEach(item => {
@@ -37,7 +37,7 @@ class Ranking extends React.Component {
             loading: false,
             rankingList: topList
           }, () => {
-            //刷新scroll
+            // 刷新scroll
             this.setState({ refreshScroll: true });
           });
         }

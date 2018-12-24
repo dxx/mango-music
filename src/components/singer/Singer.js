@@ -32,9 +32,9 @@ class Singer extends React.Component {
   }
   getSingerInfo() {
     getSingerInfo(this.props.match.params.id).then((res) => {
-      //console.log("获取歌手详情：");
+      // console.log("获取歌手详情：");
       if (res) {
-        //console.log(res);
+        // console.log(res);
         if (res.code === CODE_SUCCESS) {
           let singer = SingerModel.createSingerByDetail(res.data);
           singer.desc = res.data.desc;
@@ -44,7 +44,7 @@ class Singer extends React.Component {
           songList.forEach(item => {
             if (item.musicData.pay.payplay === 1) { return }
             let song = SongModel.createSong(item.musicData);
-            //获取歌曲vkey
+            // 获取歌曲vkey
             this.getSongUrl(song, song.mId);
             songs.push(song);
           });
@@ -53,7 +53,7 @@ class Singer extends React.Component {
             singer: singer,
             songs: songs
           }, () => {
-            //刷新scroll
+            // 刷新scroll
             this.setState({ refreshScroll: true });
           });
         }
@@ -72,9 +72,9 @@ class Singer extends React.Component {
       }
     });
   }
-	/**
-	 * 选择歌曲
-	 */
+  /**
+   * 选择歌曲
+   */
   selectSong(song) {
     return (e) => {
       this.props.setSongs([song]);
@@ -85,20 +85,20 @@ class Singer extends React.Component {
       });
     };
   }
-	/**
-	 * 播放全部
-	 */
+  /**
+   * 播放全部
+   */
   playAll = () => {
     if (this.state.songs.length > 0) {
-      //添加播放歌曲列表
+      // 添加播放歌曲列表
       this.props.setSongs(this.state.songs);
       this.props.changeCurrentSong(this.state.songs[0]);
       this.props.showMusicPlayer(true);
     }
   }
-	/**
-	 * 监听scroll
-	 */
+  /**
+   * 监听scroll
+   */
   scroll = ({ y }) => {
     let singerBgDOM = this.singerBgDOM;
     let singerFixedBgDOM = this.singerFixedBgDOM;

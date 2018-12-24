@@ -11,7 +11,7 @@ export class Ranking {
   }
 }
 
-/*
+/**
  * 通过排行榜列表创建排行榜对象函数
  */
 export function createRankingByList(data) {
@@ -27,7 +27,7 @@ export function createRankingByList(data) {
   );
 }
 
-/*
+/**
  * 通过排行榜详情创建排行榜对象函数
  */
 export function createRankingByDetail(data) {

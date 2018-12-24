@@ -8,7 +8,7 @@ class MusicPlayer extends React.Component {
     super(props);
     this.state = {
       currentSongIndex: 0,
-      show: false,  //控制播放列表显示和隐藏
+      show: false,  // 控制播放列表显示和隐藏
     }
   }
   changeCurrentIndex = (index) => {

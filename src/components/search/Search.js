@@ -29,9 +29,9 @@ class Search extends React.Component {
   }
   componentDidMount() {
     getHotKey().then((res) => {
-      //console.log("获取热搜：");
+      // console.log("获取热搜：");
       if (res) {
-        //console.log(res);
+        // console.log(res);
         if (res.code === CODE_SUCCESS) {
           this.setState({
             hotKeys: res.data.hotkey
@@ -58,13 +58,13 @@ class Search extends React.Component {
     return (e) => {
       switch (type) {
         case "album":
-          //跳转到专辑详情
+          // 跳转到专辑详情
           this.props.history.push({
             pathname: `${this.props.match.url}/album/${data}`
           });
           break;
         case "singer":
-          //跳转到歌手详情
+          // 跳转到歌手详情
           this.props.history.push({
             pathname: `${this.props.match.url}/singer/${data}`
           });
@@ -96,19 +96,19 @@ class Search extends React.Component {
   search = (w) => {
     this.setState({ w, loading: true });
     search(w).then((res) => {
-      //console.log("搜索：");
+      // console.log("搜索：");
       if (res) {
-        //console.log(res);
+        // console.log(res);
         if (res.code === CODE_SUCCESS) {
           let zhida = res.data.zhida;
           let type = zhida.type;
           let singer = {};
           let album = {};
           switch (type) {
-            //0：表示歌曲
+            // 0：表示歌曲
             case 0:
               break;
-            //1：表示歌手
+            // 1：表示歌手
             case 1:
               let zhiDaSinger = zhida.zhida_singer;
               singer = SingerModel.createSingerBySearch(zhiDaSinger);
@@ -191,7 +191,7 @@ class Search extends React.Component {
                   <div className="singer">{album.singer}</div>
                 </div>
               </div>
-              {/*歌手*/}
+              {/* 歌手 */}
               <div className="singer-wrapper" style={{ display: singer.id ? "block" : "none" }}
                 onClick={this.handleClick(singer.mId, "singer")}>
                 <div className="left">
@@ -202,7 +202,7 @@ class Search extends React.Component {
                   <div className="info">单曲{singer.songNum} 专辑{singer.albumNum}</div>
                 </div>
               </div>
-              {/*歌曲列表*/}
+              {/* 歌曲列表 */}
               {
                 this.state.songs.map((song) => {
                   return (

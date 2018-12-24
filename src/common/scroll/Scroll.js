@@ -5,7 +5,7 @@ import "./scroll.styl"
 
 class Scroll extends React.Component {
   componentDidUpdate() {
-    //组件更新后，如果实例化了better-scroll并且需要刷新就调用refresh()函数
+    // 组件更新后，如果实例化了better-scroll并且需要刷新就调用refresh()函数
     if (this.bScroll && this.props.refresh === true) {
       this.bScroll.refresh();
     }
@@ -15,7 +15,7 @@ class Scroll extends React.Component {
       this.bScroll = new BScroll(this.scrollView, {
         scrollX: this.props.direction === "horizontal",
         scrollY: this.props.direction === "vertical",
-        //实时派发scroll事件
+        // 实时派发scroll事件
         probeType: 3,
         click: this.props.click
       });
@@ -40,7 +40,7 @@ class Scroll extends React.Component {
   render() {
     return (
       <div className="scroll-view" ref={ (el) => { this.scrollView = el; }}>
-        {/*获取子组件*/}
+        {/* 获取子组件 */}
         {this.props.children}
       </div>
     );
@@ -56,9 +56,9 @@ Scroll.defaultProps = {
 
 Scroll.propTypes = {
   direction: PropTypes.oneOf(['vertical', 'horizontal']),
-  //是否启用点击
+  // 是否启用点击
   click: PropTypes.bool,
-  //是否刷新
+  // 是否刷新
   refresh: PropTypes.bool,
   onScroll: PropTypes.func
 };

@@ -32,9 +32,9 @@ class RankingInfo extends React.Component {
   }
   getRankingInfo() {
     getRankingInfo(this.props.match.params.id).then((res) => {
-      //console.log("获取排行榜详情：");
+      // console.log("获取排行榜详情：");
       if (res) {
-        //console.log(res);
+        // console.log(res);
         if (res.code === CODE_SUCCESS) {
           let ranking = RankingModel.createRankingByDetail(res.topinfo);
           ranking.info = res.topinfo.info;
@@ -42,7 +42,7 @@ class RankingInfo extends React.Component {
           res.songlist.forEach(item => {
             if (item.data.pay.payplay === 1) { return }
             let song = SongModel.createSong(item.data);
-            //获取歌曲vkey
+            // 获取歌曲vkey
             this.getSongUrl(song, item.data.songmid);
             songList.push(song);
           });
@@ -52,7 +52,7 @@ class RankingInfo extends React.Component {
             ranking: ranking,
             songs: songList
           }, () => {
-            //刷新scroll
+            // 刷新scroll
             this.setState({ refreshScroll: true });
           });
         }
@@ -71,9 +71,9 @@ class RankingInfo extends React.Component {
       }
     });
   }
-	/**
-	 * 选择歌曲
-	 */
+  /**
+   * 选择歌曲
+   */
   selectSong(song) {
     return (e) => {
       this.props.setSongs([song]);
@@ -84,20 +84,20 @@ class RankingInfo extends React.Component {
       });
     };
   }
-	/**
-	 * 播放全部
-	 */
+  /**
+   * 播放全部
+   */
   playAll = () => {
     if (this.state.songs.length > 0) {
-      //添加播放歌曲列表
+      // 添加播放歌曲列表
       this.props.setSongs(this.state.songs);
       this.props.changeCurrentSong(this.state.songs[0]);
       this.props.showMusicPlayer(true);
     }
   }
-	/**
-	 * 监听scroll
-	 */
+  /**
+   * 监听scroll
+   */
   scroll = ({ y }) => {
     let rankingBgDOM = this.rankingBgDOM;
     let rankingFixedBgDOM = this.rankingFixedBgDOM;
