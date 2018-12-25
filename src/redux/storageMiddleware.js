@@ -29,4 +29,4 @@ const storage = store => next => action => {
   return result;
 }
 
-export default storage;
+export default storage
