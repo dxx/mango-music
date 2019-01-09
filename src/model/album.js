@@ -47,7 +47,7 @@ export function createAlbumBySearch(data) {
   return new Album(
     data.albumID,
     data.albumMID,
-    data.albumNAME,
+    data.albumName,
     // `http://y.gtimg.cn/music/photo_new/T002R68x68M000${data.albumMID}.jpg?max_age=2592000`,
     data.albumPic,
     data.singerName,
