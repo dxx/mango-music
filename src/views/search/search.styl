@@ -1,0 +1,132 @@
+:global(.music-search)
+  height: 100%
+  .search-box-wrapper
+    position: relative
+    padding: 20px
+  .search-box
+    padding: 10px
+    border-radius: 3px
+    line-height: 0
+    /*background-color: #333333*/
+    i
+      float: left
+    .search-input
+      width: 80%
+      height: 15px
+      margin-left: 8px
+      font-size: 13px
+      background: none
+      border: none
+      outline: none
+      /*color: #DDDDDD*/
+  .cancel-button
+    position: absolute
+    top: 50%
+    right: 30px
+    margin-top: -8px
+    height: 16px
+    line-height: 1
+    font-size: 14px
+    display: none
+  .search-hot
+    position: absolute
+    left: 20px
+    right: 20px
+    padding-top: 10px
+    display: none
+    :global(.title)
+      font-size: 14px
+      /*color: #FFD700*/
+    .hot-list
+      :global(.hot-item)
+        float: left
+        padding: 5px 8px
+        margin-right: 10px
+        margin-top: 10px
+        border-radius: 10px
+        font-size: 14px
+        /*background-color: #333333*/
+  .search-result
+    position: absolute
+    left: 0
+    right: 0
+    top: 77px
+    bottom: 0
+    :global(.album-wrapper)
+      padding: 5px 10px
+      /*border-top: 1px solid #E5E5E5*/
+      .left
+        display: inline-block
+        width: 40px
+        height: 40px
+        img
+          width: 100%
+          height: @width
+      .right
+        display: inline-block
+        margin-left: 10px
+        vertical-align: top
+        max-width: 80%
+        :global(.song), :global(.singer)
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+        :global(.song)
+          margin-top: 5px
+          padding: 1px 0
+          font-size: 14px
+          /*color: #FFFFFF*/
+        :global(.singer)
+          margin-top: 5px
+          font-size: 12px
+    :global(.singer-wrapper)
+      padding: 5px 10px
+      /*border-top: 1px solid #E5E5E5*/
+      .left
+        display: inline-block
+        width: 40px
+        height: 40px
+        border-radius: 50%
+        img
+          width: 100%
+          height: @width
+          border-radius: 50%
+      .right
+        display: inline-block
+        margin-left: 10px
+        vertical-align: top
+        :global(.singer)
+          margin-top: 5px
+          font-size: 14px
+          /*color: #FFFFFF*/
+        :global(.info)
+          margin-top: 5px
+          font-size: 12px
+    :global(.song-wrapper)
+      padding: 5px 10px
+      /*border-top: 1px solid #E5E5E5*/
+      .left
+        display: inline-block
+        width: 40px
+        height: 40px
+        line-height: 42px
+        text-align: center
+        font-size: 22px
+      .right
+        display: inline-block
+        margin-left: 10px
+        vertical-align: top
+        max-width: 80%
+        :global(.song), :global(.singer)
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+        :global(.song)
+          padding: 3px 0 1px 0
+          font-size: 14px
+          /*color: #FFFFFF*/
+        :global(.singer)
+          margin-top: 5px
+          font-size: 12px
+      &:last-child
+        padding-bottom: 10px

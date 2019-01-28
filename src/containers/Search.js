@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { showPlayer, changeSong, setSongs } from "../redux/actions"
-import Search from "../components/search/Search"
+import Search from "../views/search/Search"
 
 const mapDispatchToProps = (dispatch) => ({
   showMusicPlayer: (show) => {

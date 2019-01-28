@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { showPlayer, changeSong, setSongs } from "../redux/actions"
-import RankingInfo from "../components/ranking/RankingInfo"
+import RankingInfo from "../views/ranking/RankingInfo"
 
 const mapDispatchToProps = (dispatch) => ({
   showMusicPlayer: (show) => {

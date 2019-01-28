@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { showPlayer, changeSong } from "../redux/actions"
-import Player from "../components/play/Player"
+import Player from "../views/play/Player"
 
 // 映射Redux全局的state到组件的props上
 const mapStateToProps = (state) => ({

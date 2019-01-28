@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { setSkin } from "../redux/actions"
-import Skin from "../components/setting/Skin"
+import Skin from "../views/setting/Skin"
 
 const mapStateToProps = (state) => ({
   currentSkin: state.skin

@@ -1,0 +1,75 @@
+.music-skin
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: @width
+    z-index: 9999
+    color: #FFFFFF
+    background: url("../../assets/imgs/play_bg.jpg") no-repeat center
+    background-size: cover
+    display: none
+    &:after
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      z-index: -1
+      background-color: rgba(0, 0, 0, .3)
+    &:global(.pop-enter)
+      transform: translate3d(0, 100%, 0)
+      &:global(.pop-enter-active)
+        transition: transform .3s
+        transform: translate3d(0, 0, 0)
+    &:global(.pop-exit)
+      transform: translate3d(0, 0, 0)
+      &:global(.pop-exit-active)
+        transition: transform .3s
+        transform: translate3d(0, 100%, 0)
+    .header
+      height: 50px
+      line-height: 50px
+      text-align: center
+      font-size: 18px
+      position: relative
+      .cancel
+        position: absolute
+        right: 15px
+        font-size: 16px
+    .skin-title
+      height: 15px
+      line-height: 15px
+      padding-left: 15px
+      font-size: 15px
+      position: relative
+      &:before
+        content: ""
+        position: absolute
+        left: 0
+        width: 3px
+        height: 100%
+        background-color: #FAEBD7
+    .skin-container
+      display: flex
+      margin-top: 20px
+      flex-wrap: wrap
+      font-size: 14px
+      .skin-wrapper
+        flex: 0 0 32%
+        width: 32%
+        text-align: center
+        padding-left: 4%
+        margin-bottom: 10px
+        box-sizing: border-box
+        .skin-color
+          padding-bottom: 110%
+          margin-bottom: 5px
+          box-shadow: 0 0 3px #FFFFFF
+          position: relative
+          :global(.icon-right)
+            position: absolute
+            right: 5px
+            bottom: 5px
+            font-size: 20px

@@ -1,6 +1,6 @@
-import { getCarousel, getNewAlbum, getAlbumInfo } from "./api/recommend";
-import { getRankingList, getRankingInfo } from "./api/ranking";
-import { getSongVKey} from "./api/song";
+import { getCarousel, getNewAlbum, getAlbumInfo } from "./api/recommend"
+import { getRankingList, getRankingInfo } from "./api/ranking"
+import { getSongVKey} from "./api/song"
 import { getHotKey, search } from "./api/search"
 import { getSingerList, getSingerInfo } from "./api/singer"
 

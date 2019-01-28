@@ -2,8 +2,8 @@
     <a href="https://code-mcx.github.io/mango-music"><img src="https://code-mcx.github.io/mango-music/favicon.ico" alt="mango music"/></a>
 </p>
 <p align="center">
-  <a href="https://github.com/facebook/react"><img src="https://img.shields.io/badge/react-v16.2.0-blue.svg" alt="react"></a>
-  <a href="https://github.com/ReactTraining/react-router"><img src="https://img.shields.io/badge/react--router-v4.2.0-blue.svg" alt="react-router"></a>
+  <a href="https://github.com/facebook/react"><img src="https://img.shields.io/badge/react-v16.7.0-blue.svg" alt="react"></a>
+  <a href="https://github.com/ReactTraining/react-router"><img src="https://img.shields.io/badge/react--router-v4.3.1-blue.svg" alt="react-router"></a>
   <a href="https://github.com/reactjs/redux"><img src="https://img.shields.io/badge/redux-v3.7.2-blue.svg" alt="redux"></a>
   <a href="https://github.com/reactjs/react-redux"><img src="https://img.shields.io/badge/react--redux-v5.0.6-blue.svg" alt="react-redux"></a>
   <a href="https://github.com/reactjs/react-transition-group"><img src="https://img.shields.io/badge/react--transition--group-v2.2.1-blue.svg" alt="react-transition-group"></a>

@@ -1,0 +1,53 @@
+:global(.music-recommend)
+  width: 100%
+  height: 100%
+  :global(.slider-container)
+    height: 160px
+    position: relative
+    :global(.slider-nav)
+      display: block
+      width: 100%
+      height: 100%
+    :global(.swiper-pagination-bullet-active)
+      background-color: #DDDDDD
+  .album-container
+    .title
+      height: 50px
+      line-height: 50px
+      text-align: center
+      font-size: 15px
+      font-weight: 400
+      /*color: #FFD700*/
+    .album-list
+      font-size: 15px
+      padding-bottom: 20px
+      .album-wrapper
+        margin: 20px
+        /*color: rgba(221, 221, 221, 0.7)*/
+        .left
+          float: left
+          width: 60px
+          height: 60px
+          vertical-align: top
+        .right
+          margin-left: 80px
+          line-height: 30px
+          position: relative
+          :global(.album-name), .singer-name
+            max-width: 70%
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+          :global(.album-name)
+            /*color: #FFFFFF*/
+            font-weight: 500
+          .public-time
+            position: absolute
+            right: 0
+            top: 50%
+            margin-top: -15px
+            font-size: 14px
+      .album-wrapper:first-child
+      	margin-top: 0
+      .album-wrapper:last-child
+        margin-bottom: 0 

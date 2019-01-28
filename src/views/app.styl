@@ -1,0 +1,55 @@
+.app
+  width: 100%
+  height: 100%
+  /*color: #DDDDDD
+  background-color: #212121*/
+  .app-header
+    height: 50px
+    line-height: 50px
+    text-align: center
+    position: relative
+    .app-more
+      position: absolute
+      top: 15px
+      left: 15px
+      font-size: 20px
+    .app-logo
+      width: 30px
+      height: 25px
+      margin-top: -5px
+      vertical-align: middle
+    .app-title
+      display: inline-block
+      height: 55px
+      margin-left: 10px
+      font-size: 18px
+      font-weight: 300
+  .music-tab
+    display: flex
+    line-height: 30px
+    text-align: center
+    padding-top: 2px
+    /*color: #DDDDDD*/
+    .tab-item
+      flex: 1
+  .music-view
+    position: fixed
+    top: 84px
+    left: 0
+    bottom: 52px
+    width: 100%
+
+:global(.nav-link), :global(.link)
+  display: block
+  color: inherit
+  text-decoration: none
+  /*&.active
+      color: #FFD700
+      border-bottom: 2px solid #FFD700*/
+
+/*子路由动画*/
+:global(.translate-enter)
+  transform: translate3d(100%, 0, 0)
+  &:global(.translate-enter-active)
+    transition: transform .3s
+    transform: translate3d(0, 0, 0)
