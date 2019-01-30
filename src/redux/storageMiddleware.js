@@ -13,7 +13,7 @@ const storage = store => next => action => {
       break;
     case ActionTypes.SET_SONGS:
       // 设置播放歌曲列表
-      localStorage.setSongs(action.songs);
+      localStorage.setSongs(store.getState().songs);
       break;
     case ActionTypes.REMOVE_SONG_FROM_LIST:
       // 移除歌曲
