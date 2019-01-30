@@ -50,8 +50,17 @@ function song(song = initialState.song, action) {
 function songs(songs = initialState.songs, action) {
   switch (action.type) {
     case ActionTypes.SET_SONGS:
-      let playLists = [...songs, action.songs[0]]
-      return playLists;
+      if (action.songs.length > 1) {
+        return action.songs;
+      } else {
+        let newSongs = [...songs];
+        let addSong = action.songs[0];
+        let index = newSongs.findIndex(song => song.id === addSong.id);
+        if (index === -1) {
+          newSongs.push(addSong);
+        }
+        return newSongs;
+      }
     case ActionTypes.REMOVE_SONG_FROM_LIST:
       let newSongs = songs.filter(song => song.id !== action.id);
       return newSongs;
