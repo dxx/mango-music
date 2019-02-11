@@ -87,7 +87,7 @@ class PlayerList extends React.Component {
                 <span className="close" onClick={this.showOrHidePlayList}>关闭</span>
               </div>
               <div className="play-list">
-                <Scroll ref={this.scrollRef}>
+                <Scroll ref={this.scrollRef} refresh={false}>
                   <div>
                     {
                       playList.map((song, index) => {

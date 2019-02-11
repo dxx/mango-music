@@ -55,7 +55,7 @@ class Scroll extends React.Component {
 Scroll.defaultProps = {
   direction: "vertical",
   click: true,
-  refresh: false,
+  refresh: true,
   onScroll: null
 };
 

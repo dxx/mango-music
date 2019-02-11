@@ -15,8 +15,7 @@ class Ranking extends React.Component {
 
     this.state = {
       loading: true,
-      rankingList: [],
-      refreshScroll: false
+      rankingList: []
     };
   }
   componentDidMount() {
@@ -35,9 +34,6 @@ class Ranking extends React.Component {
           this.setState({
             loading: false,
             rankingList: topList
-          }, () => {
-            // 刷新scroll
-            this.setState({ refreshScroll: true });
           });
         }
       }
@@ -54,7 +50,7 @@ class Ranking extends React.Component {
     let { match, route } = this.props;
     return (
       <div className="music-ranking">
-        <Scroll refresh={this.state.refreshScroll}
+        <Scroll
           onScroll={() => { forceCheck(); }}>
           <div className={style.rankingList}>
             {

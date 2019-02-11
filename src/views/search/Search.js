@@ -134,8 +134,6 @@ class Search extends React.Component {
             singer: singer,
             songs: songs,
             loading: false
-          }, () => {
-            this.refs.scroll.refresh();
           });
         }
       }
@@ -178,7 +176,7 @@ class Search extends React.Component {
           </div>
         </div>
         <div className={`${style.searchResult} skin-search-result`} style={{ display: this.state.w ? "block" : "none" }}>
-          <Scroll ref="scroll">
+          <Scroll>
             <div>
               {/*专辑*/}
               <div className="album-wrapper" style={{ display: album.id ? "block" : "none" }}

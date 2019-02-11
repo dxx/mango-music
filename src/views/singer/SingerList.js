@@ -69,10 +69,9 @@ class SingerList extends React.Component {
       typeKey: "all_all",
       indexKey: "all",
       singers: [],
-      refreshScroll: false,
       refreshTagScroll: false,
       refreshIndexScroll: false
-    }
+    };
   }
   componentDidMount() {
     // 初始化导航元素总宽度
@@ -117,9 +116,6 @@ class SingerList extends React.Component {
           this.setState({
             loading: false,
             singers
-          }, () => {
-            // 刷新scroll
-            this.setState({ refreshScroll: true });
           });
         }
       }
@@ -196,8 +192,7 @@ class SingerList extends React.Component {
           </Scroll>
         </div>
         <div className={style.singerList}>
-          <Scroll refresh={this.state.refreshScroll}
-            onScroll={() => { forceCheck(); }} ref="singerScroll">
+          <Scroll onScroll={() => { forceCheck(); }} ref="singerScroll">
             <div className={style.singerContainer}>
               {singers}
             </div>

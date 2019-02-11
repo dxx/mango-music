@@ -19,8 +19,7 @@ class Recommend extends React.Component {
     this.state = {
       loading: true,
       sliderList: [],
-      newAlbums: [],
-      refreshScroll: false
+      newAlbums: []
     };
   }
   componentDidMount() {
@@ -63,9 +62,6 @@ class Recommend extends React.Component {
           this.setState({
             loading: false,
             newAlbums: albumList
-          }, () => {
-            // 刷新scroll
-            this.setState({ refreshScroll: true });
           });
         }
       }
@@ -115,7 +111,7 @@ class Recommend extends React.Component {
     });
     return (
       <div className="music-recommend">
-        <Scroll refresh={this.state.refreshScroll}
+        <Scroll
           onScroll={(e) => {
             /* 检查懒加载组件是否出现在视图中，如果出现就加载组件 */
             forceCheck();

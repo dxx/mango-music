@@ -26,9 +26,8 @@ class Singer extends React.Component {
       show: false,
       loading: true,
       singer: {},
-      songs: [],
-      refreshScroll: false
-    }
+      songs: []
+    };
   }
   componentDidMount() {
     this.setState({
@@ -58,9 +57,6 @@ class Singer extends React.Component {
             loading: false,
             singer: singer,
             songs: songs
-          }, () => {
-            // 刷新scroll
-            this.setState({ refreshScroll: true });
           });
         }
       }
@@ -159,7 +155,7 @@ class Singer extends React.Component {
           </div>
           <div ref={this.singerContainerRef} className={style.singerContainer}>
             <div className={style.singerScroll} style={this.state.loading === true ? { display: "none" } : {}}>
-              <Scroll refresh={this.state.refreshScroll} onScroll={this.scroll}>
+              <Scroll onScroll={this.scroll}>
                 <div className={`${style.singerWrapper} skin-detail-wrapper`}>
                   <div className={style.songCount}>歌曲 共{songs.length}首</div>
                   <div className={style.songList}>

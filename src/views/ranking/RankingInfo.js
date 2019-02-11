@@ -26,9 +26,8 @@ class RankingInfo extends React.Component {
       show: false,
       loading: true,
       ranking: {},
-      songs: [],
-      refreshScroll: false
-    }
+      songs: []
+    };
   }
   componentDidMount() {
     this.setState({
@@ -57,9 +56,6 @@ class RankingInfo extends React.Component {
             loading: false,
             ranking: ranking,
             songs: songList
-          }, () => {
-            // 刷新scroll
-            this.setState({ refreshScroll: true });
           });
         }
       }
@@ -160,7 +156,7 @@ class RankingInfo extends React.Component {
           </div>
           <div ref={this.rankingContainerRef} className={style.rankingContainer}>
             <div className={style.rankingScroll} style={this.state.loading === true ? { display: "none" } : {}}>
-              <Scroll refresh={this.state.refreshScroll} onScroll={this.scroll}>
+              <Scroll onScroll={this.scroll}>
                 <div className={`${style.rankingWrapper} skin-detail-wrapper`}>
                   <div className={style.rankingCount}>排行榜 共{songs.length}首</div>
                   <div className={style.songList}>

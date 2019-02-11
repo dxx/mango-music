@@ -27,9 +27,8 @@ class Album extends React.Component {
       show: false,
       loading: true,
       album: {},
-      songs: [],
-      refreshScroll: false
-    }
+      songs: []
+    };
   }
   componentDidMount() {
     this.setState({
@@ -57,9 +56,6 @@ class Album extends React.Component {
             loading: false,
             album: album,
             songs: songs
-          }, () => {
-            // 刷新scroll
-            this.setState({ refreshScroll: true });
           });
         }
       }
@@ -208,7 +204,7 @@ class Album extends React.Component {
           </div>
           <div ref={this.albumContainerRef} className={style.albumContainer}>
             <div className={style.albumScroll} style={this.state.loading === true ? { display: "none" } : {}}>
-              <Scroll refresh={this.state.refreshScroll} onScroll={this.scroll}>
+              <Scroll onScroll={this.scroll}>
                 <div className={`${style.albumWrapper} skin-detail-wrapper`}>
                   <div className={style.songCount}>专辑 共{songs.length}首</div>
                   <div className={style.songList}>
