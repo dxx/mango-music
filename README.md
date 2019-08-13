@@ -1,6 +1,6 @@
 ## Mango Music
 
-This is a music webapp. Build width [Create React App](https://github.com/facebookincubator/create-react-app).
+This is a music webapp. Build with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Online preview address: https://code-mcx.github.io/mango-music.
 
