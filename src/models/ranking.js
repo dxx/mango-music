@@ -34,7 +34,7 @@ export function createRankingByDetail(data) {
   return new Ranking(
     data.topID,
     data.ListName,
-    data.pic_album,
+    data.pic_v12,
     []
   );
 }
