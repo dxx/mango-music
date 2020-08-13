@@ -12,6 +12,8 @@
 
 ## Mango Music
 
+> This repository is no longer maintained. Some interfaces may be invalid.
+
 This is a music webapp. Build with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Online preview address: https://code-mcx.github.io/mango-music.
@@ -42,16 +44,16 @@ It correctly bundles React in production mode and optimizes the build for the be
 <p align="center">
   <img src="https://code-mcx.github.io/mango-music/screenshot/recommend.png" alt="recommend"/>
   <img src="https://code-mcx.github.io/mango-music/screenshot/ranking.png" alt="ranking"/>
-  
+
   <img src="https://code-mcx.github.io/mango-music/screenshot/singer.png" alt="singer"/>
   <img src="https://code-mcx.github.io/mango-music/screenshot/search.png" alt="search"/>
-  
+
   <img src="https://code-mcx.github.io/mango-music/screenshot/album_info.png" alt="album info"/>
   <img src="https://code-mcx.github.io/mango-music/screenshot/ranking_info.png" alt="ranking info"/>
-  
+
   <img src="https://code-mcx.github.io/mango-music/screenshot/search_result.png" alt="search result"/>
   <img src="https://code-mcx.github.io/mango-music/screenshot/singer_info.png" alt="singer info"/>
-  
+
   <img src="https://code-mcx.github.io/mango-music/screenshot/play.png" alt="play"/>
   <img src="https://code-mcx.github.io/mango-music/screenshot/play_list.png" alt="play list"/>
 </p>
