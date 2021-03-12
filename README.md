@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://code-mcx.github.io/mango-music"><img src="https://code-mcx.github.io/mango-music/favicon.ico" alt="mango music"/></a>
+    <a href="https://dxx.github.io/mango-music"><img src="https://code-mcx.github.io/mango-music/favicon.ico" alt="mango music"/></a>
 </p>
 <p align="center">
   <a href="https://github.com/facebook/react"><img src="https://img.shields.io/badge/react-v16.7.0-blue.svg" alt="react"></a>
@@ -16,7 +16,7 @@
 
 This is a music webapp. Build with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Online preview address: https://code-mcx.github.io/mango-music.
+Online preview address: https://dxx.github.io/mango-music.
 
 ## Technology Stack
 
@@ -42,18 +42,18 @@ It correctly bundles React in production mode and optimizes the build for the be
 ## Screenshot
 
 <p align="center">
-  <img src="https://code-mcx.github.io/mango-music/screenshot/recommend.png" alt="recommend"/>
-  <img src="https://code-mcx.github.io/mango-music/screenshot/ranking.png" alt="ranking"/>
+  <img src="https://dxx.github.io/mango-music/screenshot/recommend.png" alt="recommend"/>
+  <img src="https://dxx.github.io/mango-music/screenshot/ranking.png" alt="ranking"/>
 
-  <img src="https://code-mcx.github.io/mango-music/screenshot/singer.png" alt="singer"/>
-  <img src="https://code-mcx.github.io/mango-music/screenshot/search.png" alt="search"/>
+  <img src="https://dxx.github.io/mango-music/screenshot/singer.png" alt="singer"/>
+  <img src="https://dxx.github.io/mango-music/screenshot/search.png" alt="search"/>
 
-  <img src="https://code-mcx.github.io/mango-music/screenshot/album_info.png" alt="album info"/>
-  <img src="https://code-mcx.github.io/mango-music/screenshot/ranking_info.png" alt="ranking info"/>
+  <img src="https://dxx.github.io/mango-music/screenshot/album_info.png" alt="album info"/>
+  <img src="https://dxx.github.io/mango-music/screenshot/ranking_info.png" alt="ranking info"/>
 
-  <img src="https://code-mcx.github.io/mango-music/screenshot/search_result.png" alt="search result"/>
-  <img src="https://code-mcx.github.io/mango-music/screenshot/singer_info.png" alt="singer info"/>
+  <img src="https://dxx.github.io/mango-music/screenshot/search_result.png" alt="search result"/>
+  <img src="https://dxx.github.io/mango-music/screenshot/singer_info.png" alt="singer info"/>
 
-  <img src="https://code-mcx.github.io/mango-music/screenshot/play.png" alt="play"/>
-  <img src="https://code-mcx.github.io/mango-music/screenshot/play_list.png" alt="play list"/>
+  <img src="https://dxx.github.io/mango-music/screenshot/play.png" alt="play"/>
+  <img src="https://dxx.github.io/mango-music/screenshot/play_list.png" alt="play list"/>
 </p>
