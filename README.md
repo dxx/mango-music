@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://dxx.github.io/mango-music"><img src="https://code-mcx.github.io/mango-music/favicon.ico" alt="mango music"/></a>
+    <a href="https://dxx.github.io/mango-music"><img src="https://dxx.github.io/mango-music/favicon.ico" alt="mango music"/></a>
 </p>
 <p align="center">
   <a href="https://github.com/facebook/react"><img src="https://img.shields.io/badge/react-v16.7.0-blue.svg" alt="react"></a>
