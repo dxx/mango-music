@@ -2,7 +2,7 @@
 
 This is a music webapp. Build with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Online preview address: https://code-mcx.github.io/mango-music.
+Online preview address: https://dxx.github.io/mango-music.
 
 ### Instruction
 This is the first chapter of the code
