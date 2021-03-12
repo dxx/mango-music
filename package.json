@@ -58,7 +58,7 @@
     "postcss-safe-parser": "4.0.1",
     "poststylus": "^1.0.0",
     "react-app-polyfill": "^0.2.0",
-    "react-dev-utils": "^7.0.0",
+    "react-dev-utils": "^11.0.4",
     "redux-logger": "^3.0.6",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
