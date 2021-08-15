@@ -7,8 +7,6 @@
 # production
 /build
 
-/icons
-
 # misc
 .DS_Store
 .env.local
